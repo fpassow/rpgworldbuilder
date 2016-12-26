@@ -8,12 +8,11 @@ require_once('model.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['username']) and isset($_POST['password'])) {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        if (ctype_alnum($username) and ctype_alnum($password)) {
-            $userFile = 'users\user_'.$username.'.txt';
-            if (file_exists($userFile)) {
-                $user = unserialize(file_get_contents($userFile));
+        $username = trim($_POST['username']);
+        $password = trim($_POST['password']);
+        if (strlen($username) and ctype_alnum($username) and ctype_alnum($password)) {
+            $user = $model.getUser($username);
+            if ($user) {
                 if ($user->password == $password) {
                     $_SESSION['username'] = $username;
                     $_SESSION['isloggedin'] = true;

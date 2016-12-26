@@ -1,5 +1,35 @@
 <?php
 
+class Model {
+    
+    # Returns array of strings
+    function getUserNames() {
+        $userFiles = scandir('users');
+        array_splice($userFiles, 0, 2);# Remove "." and ".."
+        foreach ($userFiles as $f) {
+            $userNames[] = rtrim(ltrim($f, 'user_'), '.txt');
+        }
+        return $userNames;
+    }
+    
+    # Returns a User object (with all its Campaign objects)
+    function getUser($username) {
+        if (file_exists($username)) {
+            return unserialize(file_get_contents('users\user_'.$username.'.txt')); 
+        } else {
+            return null;
+        }
+    }
+    
+    # Takes a User object and stores it on disk
+    function storeUser($user) {
+        $f = fopen('users\\user_'.$user->username.'.txt', 'w');
+        fwrite($f, serialize($user));
+        fclose($f);
+    }
+    
+}
+
 class User {
     var $username;
     var $password;
@@ -9,6 +39,11 @@ class User {
 class Campaign {
     #### FUN BITS
     
+    function __construct() {
+        $this->id = uniqid();
+    }
+    
+    var $id;
     var $simpleFields = ['title','seed_text','pcs_are','players_intro','pc_creation_notes'];
       
     var $title = '';

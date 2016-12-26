@@ -13,6 +13,16 @@
 
 <div id="main">
 
+<div id="nav">
+    <?php
+        if (!$_SESSION['isloggedin']) {
+            echo '<a href="logout.php">logout</a>';
+        } else {
+            echo '<a href="login.php">login</a> <a href="createaccount.php">create account</a>';
+        }
+    ?>
+</div>
+
 <form action="campaign.php" method="POST">
 
 <h2>Title</h2>
