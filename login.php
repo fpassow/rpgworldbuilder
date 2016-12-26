@@ -4,6 +4,8 @@ if(session_status() == PHP_SESSION_NONE){
     session_start();
 }
 
+require_once('model.php');
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['username']) and isset($_POST['password'])) {
         $username = $_POST['username'];
@@ -13,7 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (file_exists($userFile)) {
                 $user = unserialize(file_get_contents($userFile));
                 if ($user->password == $password) {
-                    session_start();
                     $_SESSION['username'] = $username;
                     $_SESSION['isloggedin'] = true;
                     require('campaign.php');

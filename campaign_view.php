@@ -7,6 +7,10 @@
 </head>
 <body>
 
+<?php
+    $campaign = $user->campaign;
+?>
+
 <div id="main">
 
 <form action="campaign.php" method="POST">
