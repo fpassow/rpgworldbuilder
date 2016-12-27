@@ -5,6 +5,18 @@ if(session_status() == PHP_SESSION_NONE){
 }
 
 require_once('model.php');
+
+#
+# IF LOGGED IN AND I OWN THIS CAMPAIGN AND THIS IS A POST, 
+#       UPDATE AND REDISPLAY THE EDIT PAGE
+
+# IF LOGGED IN AND I OWN THIS CAMPAIGN AND THIS IS A GET,
+#       DISPLAY THE EDIT PAGE
+#
+# IF NOT LOGGED IN OR THIS IS NOT MY PAGE (REGARDLESS OF METHOD),
+#       DISPLAY STATIC VIEW
+#
+
 if (!$_SESSION['isloggedin']) {
     require('login.php');
     return;

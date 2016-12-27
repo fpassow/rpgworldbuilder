@@ -21,6 +21,18 @@ class Model {
         }
     }
     
+    #Returns all user objects
+    function getUsers() {
+        $userNames = $this->getUserNames();
+        foreach ($userNames as $n) {
+            $u = getUser($n);
+            if ($n) {
+                $users[] = $u;
+            }
+        }
+        return $users;
+    }
+    
     # Takes a User object and stores it on disk
     function storeUser($user) {
         $f = fopen('users\\user_'.$user->username.'.txt', 'w');

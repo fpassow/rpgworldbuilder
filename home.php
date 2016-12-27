@@ -8,14 +8,8 @@ require_once('model.php');
 
 #if (!$_SESSION['isloggedin']) {
     
-$userFiles = scandir('users');
-
-# Remove "." and ".."
-array_splice($userFiles, 0, 2);
-
-foreach ($userFiles as $f) {
-    $users[] = unserialize(file_get_contents('users\\'.$f)); 
-}
+$model = new Model;
+$users = $model->getUsers();
 
 require('home_view.php');
 
