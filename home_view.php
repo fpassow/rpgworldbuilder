@@ -10,8 +10,8 @@
 <div id="main">
 <div id="nav">
     <?php
-        if (!$_SESSION['isloggedin']) {
-            echo '<a href="logout.php">logout</a>';
+        if (isset($_SESSION['isloggedin']) and $_SESSION['isloggedin']) {
+            echo '<a href="campaign.php">[[[[Create a World]]]]</a> <a href="logout.php">logout</a>';
         } else {
             echo '<a href="login.php">login</a> <a href="createaccount.php">create account</a>';
         }
@@ -23,9 +23,13 @@
 <?php
 
     foreach ($users as $user) {
-        echo '<h2><a href="campaign.php?campaignid='.$user->campaign->id.'">'.
-           $user->campaign->title."(".$user->username.")</a></h2>\r\n";
-        echo '<p>'.$user->campaign->seed_text."</p>\r\n\r\n";
+        if ($user->campaigns) {
+            foreach ($user->campaigns as $camp) {
+                echo '<h2><a href="campaign.php?campaignid='.$camp->id.'">'.
+                      $camp>title."(".$user->username.")</a></h2>\r\n";
+                echo '<p>'.$camp->seed_text."</p>\r\n\r\n";
+            }
+        }
     }
 ?>
 

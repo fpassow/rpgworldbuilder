@@ -1,11 +1,15 @@
 <?php
 
+# Data is stored as serialized User objects (which contain Campaign objects).
+# Assume it will migrate to MongoDB (or ?) before it has to handle much real load.
+#   So compatibility with the eventual persistence layer is more important than efficiency today.
 class Model {
     
     # Returns array of strings
     function getUserNames() {
         $userFiles = scandir('users');
         array_splice($userFiles, 0, 2);# Remove "." and ".."
+        $userNames = [];
         foreach ($userFiles as $f) {
             $userNames[] = rtrim(ltrim($f, 'user_'), '.txt');
         }
@@ -14,7 +18,7 @@ class Model {
     
     # Returns a User object (with all its Campaign objects)
     function getUser($username) {
-        if (file_exists($username)) {
+        if (file_exists('users\user_'.$username.'.txt')) {
             return unserialize(file_get_contents('users\user_'.$username.'.txt')); 
         } else {
             return null;
@@ -24,13 +28,27 @@ class Model {
     #Returns all user objects
     function getUsers() {
         $userNames = $this->getUserNames();
+        $users = [];
         foreach ($userNames as $n) {
-            $u = getUser($n);
+            $u = $this->getUser($n);
             if ($n) {
                 $users[] = $u;
             }
         }
         return $users;
+    }
+    
+    function getCampaignByID($id) {
+        $id = trim($id);
+        $users = getUsers();
+        foreach ($users as $user) {
+            foreach ($user->campaigns as $campaign) {
+                if ($campaign->id == $id) {
+                    return $campaign;
+                }
+            }
+        }
+        return null;
     }
     
     # Takes a User object and stores it on disk
@@ -45,17 +63,20 @@ class Model {
 class User {
     var $username;
     var $password;
-    var $campaign;
+    var $campaigns = [];
 }
 
 class Campaign {
     #### FUN BITS
     
-    function __construct() {
+    function __construct($username) {
         $this->id = uniqid();
+        $this->username = $username;
     }
     
     var $id;
+    var $username;
+    
     var $simpleFields = ['title','seed_text','pcs_are','players_intro','pc_creation_notes'];
       
     var $title = '';

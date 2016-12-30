@@ -6,34 +6,58 @@ if(session_status() == PHP_SESSION_NONE){
 
 require_once('model.php');
 
-#
-# IF LOGGED IN AND I OWN THIS CAMPAIGN AND THIS IS A POST, 
-#       UPDATE AND REDISPLAY THE EDIT PAGE
+$model = new Model;
 
-# IF LOGGED IN AND I OWN THIS CAMPAIGN AND THIS IS A GET,
-#       DISPLAY THE EDIT PAGE
-#
-# IF NOT LOGGED IN OR THIS IS NOT MY PAGE (REGARDLESS OF METHOD),
-#       DISPLAY STATIC VIEW
-#
-
-if (!$_SESSION['isloggedin']) {
-    require('login.php');
-    return;
-} else {
-    $username = $_SESSION['username'];
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    if (isset($_GET['id'])) {
+        $campaign = $model->getCampaignByID($id);
+        if (!$campaign) {
+            $message = 'No campagin with id = "'.$id.'".';
+            require('status404.php');
+            return;
+        }
+        if ($_SESSION['isloggedin'] and $_SESSION['username'] == $campaign->username) {
+            require('campaign_view.php');
+            return;
+        } else {
+            require('campaign_static_view.php');
+            return;
+        }
+    } elseif($_SESSION['isloggedin']) {
+        $campaign = new Campaign($_SESSION['username']);
+        $campaign->title = 'Untitled';
+        $user = $model->getUser($_SESSION['username']);
+        $user->campaigns[] = $campaign;
+        $model->storeUser($user);
+        require('campaign_view.php');
+        return;
+    }
 }
 
-$user = unserialize(file_get_contents('users\user_'.$username.'.txt')); 
 
-# On POST, add data to campaign oject
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $user->campaign->updateFromArray($_POST);
-    # Serialize and save
-    $f = fopen('users\\user_'.$user->username.'.txt', 'w');
-    fwrite($f, serialize($user));
-    fclose($f);
+    if (!$_SESSION['isloggedin']) {
+        $message = 'Must be logged in.';
+        require('status401.php');
+        return;
+    }
+    if (isset($_POST['id'])) {
+        $campaign = $model->getCampaignByID($id);
+        if ($campaign) {
+            if ($campaign->usename != $_SESSION['username']) {
+                $message = 'Campaign belongs to a different user.';
+                require('status403.php');
+                return;
+            }
+        } else {
+            $message = 'Campagin id "'.$id.'" not found.';
+            require('status404.php');
+            return;
+        }
+    }
+    $campaign->updateFromArray($_POST);
+    $user = $model->getUser($username);
+    $user->campaigns[] = $campaign;
+    $model->storeUser($user);
+    require('campaign_view.php');
 }
-
-# Show the view
-require('campaign_view.php');

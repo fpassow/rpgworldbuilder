@@ -19,22 +19,19 @@
     ?>
 </div>
 
-<form action="campaign.php" method="POST">
 
 <h2>Title</h2>
-<input name="title" value="<?= $campaign->title ?>">
+<p><?= $campaign->title ?>"></p>
 
 <h2>Seed Text</h2>
-<textarea name="seed_text" rows="5" cols="80"><?= $campaign->seed_text ?></textarea>
+<p><?= $campaign->seed_text ?></p>
 
 <h2>Campaign Drivers</h2>
-<p>List-y thing goes here.</p>
 <?php
     foreach ($campaign->driver as $d) {
         echo '<div class="array_item">'.$d.'</div>'."\r\n";
     }
 ?>
-<textarea name="driver" rows="5" cols="80"></textarea>
 
 <h2>Places</h2>
 <?php
@@ -42,10 +39,9 @@
         echo '<div class="array_item">'.$p.'</div>'."\r\n";
     }
 ?>
-<textarea name="place" rows="5" cols="80"></textarea>
 
 <h2>PCs are....</h2>
-<textarea name="pcs_are" rows="5" cols="80"><?= $campaign->pcs_are ?></textarea>
+<p><?= $campaign->pcs_are ?></p>
 
 <h2>People, Groups, and Things</h2>
 <?php
@@ -53,7 +49,6 @@
         echo '<div class="array_item">'.$x.'</div>'."\r\n";
     }
 ?>
-<textarea name="person_group_thing" rows="5" cols="80"></textarea>
 
 <h2>Adventures</h2>
 <?php
@@ -61,7 +56,6 @@
         echo '<div class="array_item">'.$x.'</div>'."\r\n";
     }
 ?>
-<textarea name="adventure" rows="5" cols="80"></textarea>
 
 <h2>Classes</h2>
 <?php
@@ -69,7 +63,6 @@
         echo '<div class="array_item">'.$x.'</div>'."\r\n";
     }
 ?>
-<textarea name="class" rows="5" cols="80"></textarea>
 
 <h2>Toys</h2>
 <?php
@@ -77,7 +70,6 @@
         echo '<div class="array_item">'.$x.'</div>'."\r\n";
     }
 ?>
-<textarea name="toy" rows="5" cols="80"></textarea>
 
 <h2>Treasure</h2>
 <?php
@@ -85,13 +77,12 @@
         echo '<div class="array_item">['.$x.']</div>'."\r\n";
     }
 ?>
-<textarea name="treasure" rows="5" cols="80"></textarea>
 
 <h2>Players' Intro</h2>
-<textarea name="players_intro" rows="5" cols="80"><?= $campaign->players_intro ?></textarea>
+<p><?= $campaign->players_intro ?></p>
 
 <h2>PC Creation Notes</h2>
-<textarea name="pc_creation_notes" rows="5" cols="80"><?= $campaign->pc_creation_notes ?></textarea>
+<p><?= $campaign->pc_creation_notes ?></p>
 
 <h2>First Adventures</h2>
 <?php
@@ -99,11 +90,6 @@
         echo '<div class="array_item">'.$x.'</div>'."\r\n";
     }
 ?>
-<textarea name="first_adventure" rows="5" cols="80"></textarea>
-
-
-<br><br><input type="submit">
-</form>
 
 </div> <!-- End #main -->
 
