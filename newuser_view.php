@@ -9,11 +9,15 @@
 
 <div id="main">
 
+<?php
+    require('topnav.php');
+?>
+
 <h1>Create Account</h1>
 
 <p><?= $message ?>
 
-<form action="createaccount.php" method="POST">
+<form action="newuser.php" method="POST">
 
 <h2>User Name</h2>
 <input name="username">

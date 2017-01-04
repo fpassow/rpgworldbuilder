@@ -8,20 +8,14 @@
 <body>
 
 <div id="main">
-<div id="nav">
-    <?php
-        if (isset($_SESSION['isloggedin']) and $_SESSION['isloggedin']) {
-            echo '<a href="campaign.php">[[[[Create a World]]]]</a> <a href="logout.php">logout</a>';
-        } else {
-            echo '<a href="login.php">login</a> <a href="createaccount.php">create account</a>';
-        }
-    ?>
-</div>
+<?php
+    require('topnav.php');
+?>
 
-<h1>Worlds</h1>
+<h1>Campaigns</h1>
 
 <?php
-
+    $users = $model->getUsers();
     foreach ($users as $user) {
         if ($user->campaigns) {
             foreach ($user->campaigns as $camp) {

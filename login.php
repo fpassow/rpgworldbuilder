@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if ($user->password == $password) {
                     $_SESSION['username'] = $username;
                     $_SESSION['isloggedin'] = true;
-                    require('home.php');
+                    require('mycampaigns.php');
                     return;
                 }
             }

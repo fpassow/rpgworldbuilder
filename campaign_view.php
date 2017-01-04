@@ -1,3 +1,8 @@
+<?php
+
+# Expects $campaign, and a logged in session.
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,17 +14,12 @@
 
 <div id="main">
 
-<div id="nav">
-    <?php
-        if (!$_SESSION['isloggedin']) {
-            echo '<a href="logout.php">logout</a>';
-        } else {
-            echo '<a href="login.php">login</a> <a href="createaccount.php">create account</a>';
-        }
-    ?>
-</div>
+<?php
+    require('topnav.php');
+?>
 
-<form action="campaign.php" method="POST">
+<form action="updatecampaign.php" method="POST">
+<input type="hidden" name="id" value="<?= $campaign->id ?>">
 
 <h2>Title</h2>
 <input name="title" value="<?= $campaign->title ?>">
@@ -82,7 +82,7 @@
 <h2>Treasure</h2>
 <?php
     foreach ($campaign->treasure as $x) {
-        echo '<div class="array_item">['.$x.']</div>'."\r\n";
+        echo '<div class="array_item">'.$x.'</div>'."\r\n";
     }
 ?>
 <textarea name="treasure" rows="5" cols="80"></textarea>

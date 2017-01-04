@@ -40,7 +40,7 @@ class Model {
     
     function getCampaignByID($id) {
         $id = trim($id);
-        $users = getUsers();
+        $users = $this->getUsers();
         foreach ($users as $user) {
             foreach ($user->campaigns as $campaign) {
                 if ($campaign->id == $id) {
@@ -64,6 +64,20 @@ class User {
     var $username;
     var $password;
     var $campaigns = [];
+    
+    # Replace existing version of campaign with a new one
+    function updateCampaign($campaign) {
+        for ($i = 0; $i < sizeof($this->campaigns); $i++) {
+            if ($campaign->id == $this->campaigns[$i]->id) {
+                $this->campaigns[$i] = $campaign;
+                return;
+            }
+        }
+        #If we get here, we didn't find it.
+        $message = "Attempting to update non-existent Campaign. ID = ".$campaign->id;
+        require('status400.php');
+    }
+    
 }
 
 class Campaign {
@@ -105,7 +119,7 @@ class Campaign {
         }
                
         if (isset($arr['driver']) and (null !== $arr['driver']) and strlen(trim($arr['driver']))) {
-            $this->driver[sizeof($this->driver)] = $arr['driver'];
+            $this->driver[] = $arr['driver'];
         }
         if (isset($arr['place']) and (null !== $arr['place']) and strlen(trim($arr['place']))) {
             $this->place[sizeof($this->place)] = $arr['place'];
