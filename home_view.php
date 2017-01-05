@@ -19,9 +19,13 @@
     foreach ($users as $user) {
         if ($user->campaigns) {
             foreach ($user->campaigns as $camp) {
-                echo '<h2><a href="campaign.php?campaignid='.$camp->id.'">'.
-                      $camp>title."(".$user->username.")</a></h2>\r\n";
-                echo '<p>'.$camp->seed_text."</p>\r\n\r\n";
+                echo '<h2><a href="campaign.php?id='.$camp->id.'">'.
+                      $camp->title."(".$user->username.")</a></h2>\r\n";
+                echo '<div>'.$camp->seed_text.'</div>';
+                if ($model->isloggedIn()) {
+                    echo '<div class="camp_controls"> <a href="clone.php?id='.$camp->id.'">(clone)</a></div>';
+                }
+                echo "\r\n\r\n";
             }
         }
     }

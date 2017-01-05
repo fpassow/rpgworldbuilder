@@ -17,7 +17,7 @@
 
 <?php
 foreach ($user->campaigns as $camp) {
-    echo '<div>'.$camp->title.'</div>';
+    echo '<div><a href="campaign.php?id='.$camp->id.'">'.$camp->title.'</a></div>';
 }
 ?>
 

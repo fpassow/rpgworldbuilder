@@ -58,6 +58,9 @@ class Model {
         fclose($f);
     }
     
+    function isLoggedIn() {
+        return isset($_SESSION['isloggedin']) and $_SESSION['isloggedin'];
+    }
 }
 
 class User {

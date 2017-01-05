@@ -1,3 +1,4 @@
+
 #main {
     max-width: 600px;
     margin-left: auto;
@@ -14,3 +15,7 @@ input {
 textarea {
     width: 100%;
 }
+.camp_controls {
+    text-align: right;
+}
+
