@@ -3,26 +3,46 @@
     require('model.php');
     $model = new Model;
     
+    function printArrayElements($arr) {
+        $prelim = "[\r\n";
+        foreach ($arr as $a) {
+            echo $prelim.'"'.$a.'"';
+            $prelim = ",\r\n";
+        }
+        echo "]\r\n";
+    }
+    
     $users = $model->getUsers();
     foreach ($users as $user) {
         if ($user->campaigns) {
             foreach ($user->campaigns as $camp) {
                 echo "{\r\n";
-                for ($i = 0; $i < sizeof($camp->simpleFields)-1; $i++) {
-                    $fname = $camp->simpleFields[$i];
-                    echo '  "'.$fname.'": "'.$camp->$fname.'",'."\r\n";
+                $names = $camp->simpleFields;
+                while (sizeof($names) > 1) {
+                    $name = array_shift($names);
+                    echo '  "'.$name.'": "'.$camp->$name.'",'."\r\n";
                 }
-                if (sizeof($camp->simpleFields)) {
+                if (sizeof($names)) {
+                    $name = array_shift($names);
                     #Like above, but without the final comma.
-                    $i = sizeof($camp->simpleFields)-1;
-                    $fname = $camp->simpleFields[$i];
-                    echo '  "'.$fname.'": "'.$camp->$fname.'"'."\r\n";
+                    echo '  "'.$name.'": "'.$camp->$name.'"'."\r\n";
                 }
-                foreach ($camp->arrayFields as $sf) {
-                    
+                
+                $names = $camp->arrayFields;
+                while (sizeof($names) > 1) {
+                    $name = array_shift($names);
+                    echo '  "'.$name.'": ';
+                    printArrayElements($camp->$name); 
+                    echo ",\r\n";
                 }
-                echo "}\r\n";
+                if (sizeof($names)) {
+                    $name = array_shift($names);
+                    #Like above, but without the final comma.
+                    echo '  "'.$name.'": ';
+                    printArrayElements($camp->$name);
+                }
             }
+            echo "}\r\n";
         }
     }
 ?>
