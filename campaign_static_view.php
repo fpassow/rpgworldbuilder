@@ -17,7 +17,8 @@
 
 
 <h2>Title</h2>
-<p><?= $campaign->title ?>"></p>
+<p><?= $campaign->title ?>"</p>
+<div>Owner: <?= $campaign->username ?></div>
 
 <h2>Seed Text</h2>
 <p><?= $campaign->seed_text ?></p>
