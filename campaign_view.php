@@ -18,6 +18,8 @@
     require('topnav.php');
 ?>
 
+<div><a href=import.php?importto="<?= $campaign->id ?>">Import another campaign</a></div>
+
 <form action="updatecampaign.php" method="POST">
 <input type="hidden" name="id" value="<?= $campaign->id ?>">
 
@@ -35,6 +37,7 @@
     }
 ?>
 <textarea name="driver" rows="5" cols="80"></textarea>
+<input type="submit">
 
 <h2>Places</h2>
 <?php
@@ -43,9 +46,11 @@
     }
 ?>
 <textarea name="place" rows="5" cols="80"></textarea>
+<input type="submit">
 
 <h2>PCs are....</h2>
 <textarea name="pcs_are" rows="5" cols="80"><?= $campaign->pcs_are ?></textarea>
+<input type="submit">
 
 <h2>People, Groups, and Things</h2>
 <?php
@@ -54,6 +59,7 @@
     }
 ?>
 <textarea name="person_group_thing" rows="5" cols="80"></textarea>
+<input type="submit">
 
 <h2>Adventures</h2>
 <?php
@@ -62,6 +68,7 @@
     }
 ?>
 <textarea name="adventure" rows="5" cols="80"></textarea>
+<input type="submit">
 
 <h2>Classes</h2>
 <?php
@@ -70,6 +77,7 @@
     }
 ?>
 <textarea name="class" rows="5" cols="80"></textarea>
+<input type="submit">
 
 <h2>Toys</h2>
 <?php
@@ -78,6 +86,7 @@
     }
 ?>
 <textarea name="toy" rows="5" cols="80"></textarea>
+<input type="submit">
 
 <h2>Treasure</h2>
 <?php
@@ -86,12 +95,15 @@
     }
 ?>
 <textarea name="treasure" rows="5" cols="80"></textarea>
+<input type="submit">
 
 <h2>Players' Intro</h2>
 <textarea name="players_intro" rows="5" cols="80"><?= $campaign->players_intro ?></textarea>
+<input type="submit">
 
 <h2>PC Creation Notes</h2>
 <textarea name="pc_creation_notes" rows="5" cols="80"><?= $campaign->pc_creation_notes ?></textarea>
+<input type="submit">
 
 <h2>First Adventures</h2>
 <?php
@@ -100,9 +112,8 @@
     }
 ?>
 <textarea name="first_adventure" rows="5" cols="80"></textarea>
+<input type="submit">
 
-
-<br><br><input type="submit">
 </form>
 
 </div> <!-- End #main -->
