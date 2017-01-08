@@ -81,6 +81,15 @@ class User {
         require('status400.php');
     }
     
+    function deleteCampaign($deleteid) {
+        for ($i = 0; $i < sizeof($this->campaigns); $i++) {
+            if ($this->campaigns[$i]->id == $deleteid) {
+                array_splice($this->campaigns, $i, 1);
+                return;
+            }
+        }
+    }
+    
 }
 
 class Campaign {

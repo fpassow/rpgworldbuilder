@@ -18,7 +18,10 @@
     require('topnav.php');
 ?>
 
-<div><a href=import.php?importto="<?= $campaign->id ?>">Import another campaign</a></div>
+<div>
+    <a href="import.php?importto=<?= $campaign->id ?>">Import another campaign</a>
+    <a href="delete.php?deleteid=<?= $campaign->id ?>">Delete this campaign</a>
+</div>
 
 <form action="updatecampaign.php" method="POST">
 <input type="hidden" name="id" value="<?= $campaign->id ?>">

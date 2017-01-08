@@ -48,7 +48,7 @@ if (!$from) {
 #Simple fields: Assign "from" values to "to" fields.
 #               Concatenate if "to" already has a value.
 #               But never change the tile.
-foreach ($to->simpleFields as $name) 
+foreach ($to->simpleFields as $name) {
     if ($name != 'title') {
         if ($from->$name) {
             if ($to->$name) {
@@ -65,7 +65,9 @@ foreach ($to->simpleFields as $name)
 foreach ($to->arrayFields as $name) {
     foreach ($from->$name as $val) {
        if (!in_array($val, $to->$name)) {
-           $to->$name[] = $val;
+           $temp = $to->$name;
+           $temp[] = $val;
+           $to->$name = $temp;
        }
     }
 }
@@ -73,10 +75,9 @@ foreach ($to->arrayFields as $name) {
 
 
 
-
-
+$campaign = $to;
 $username = $_SESSION['username'];
 $user = $model->getUser($username);
 $user->updateCampaign($to);
 $model->storeUser($user);
-require('campaign_view.php');
+header('Location: campaign.php?id='.$campaign->id, true, 303);
