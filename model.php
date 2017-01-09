@@ -122,6 +122,10 @@ class Campaign {
     var $treasure = [];
     var $adventure = [];
     var $first_adventure = [];
+    
+    function deleteItem($name, $index) {
+        array_splice($this->$name, $index, 1);
+    }
   
     function updateFromArray($arr) {
         foreach ($this->simpleFields as $fieldName) {
