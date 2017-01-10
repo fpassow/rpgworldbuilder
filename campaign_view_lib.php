@@ -9,17 +9,7 @@ function displayArrayField($campaign, $name) {
                   .'&fieldname='.$name.'&index='. $i++;
         echo '">delete</a>)</li>'."\r\n";
     }
+    echo '<li><input name="'.$name.'"></li>'."\r\n";
     echo "</ul>\r\n";
+    echo '<input type="submit">'."\r\n";
 }
-
-/*
-function displayArrayField($campaign, $name) {
-    $i = 0;
-    foreach ($campaign->$name as $x) {
-        echo '<div class="array_item">'.$x;
-        echo '(<a href="deletearrayitem.php?campaignid='.$campaign->id
-                  .'&fieldname='.$name.'&index='. $i++;
-        echo '">delete</a>)</div>'."\r\n";
-    }
-} 
-*/

@@ -42,4 +42,4 @@ $campaign->updateFromArray($_POST);
 $user = $model->getUser($username);
 $user->updateCampaign($campaign);
 $model->storeUser($user);
-require('campaign_view.php');
+header('Location: campaign.php?id='.$campaign->id, true, 303);
