@@ -1,4 +1,8 @@
 
+table {
+    width: 100%;
+}
+
 #main {
     max-width: 600px;
     margin-left: auto;
@@ -18,4 +22,6 @@ textarea {
 .camp_controls {
     text-align: right;
 }
+
+
 

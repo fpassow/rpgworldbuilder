@@ -17,6 +17,8 @@
 <?php
     require('topnav.php');
     require('campaign_view_lib.php');
+    require('list_lib.php');
+    $lists = new Lists;
 ?>
 
 <div>
@@ -50,6 +52,7 @@
 
 <h2>People, Groups, and Things</h2>
 <?php
+    displayListAsTable('whos', $lists, 4);
     displayArrayField($campaign, 'person_group_thing');
 ?>
 
