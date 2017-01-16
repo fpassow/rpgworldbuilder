@@ -38,7 +38,7 @@
 <h2>Campaign Drivers</h2>
 <div class="optionsbox">
 <?php
-    displayDefListAsTable('drivers', $lists, 3, '_blank');
+    displayDefListAsTable('drivers', $lists, 3, 'deftab');
 ?>
 </div>
 <?php
