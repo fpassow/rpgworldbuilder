@@ -36,7 +36,11 @@
 <textarea name="seed_text" rows="5" cols="80"><?= $campaign->seed_text ?></textarea>
 
 <h2>Campaign Drivers</h2>
-<p>List-y thing goes here.</p>
+<div class="optionsbox">
+<?php
+    displayDefListAsTable('drivers', $lists, 3, '_blank');
+?>
+</div>
 <?php
     displayArrayField($campaign, 'driver');
 ?>
@@ -50,43 +54,60 @@
 <textarea name="pcs_are" rows="5" cols="80"><?= $campaign->pcs_are ?></textarea>
 <input type="submit">
 
-<h2>People, Groups, and Things</h2>
+<h2>People, Groups, and Things in the World</h2>
 <?php
-    displayListAsTable('whos', $lists, 4);
+   # It's a lot to read. And I think it dictracts more than it helps
+   # displayListAsTable('whos', $lists, 4);
+   
     displayArrayField($campaign, 'person_group_thing');
 ?>
 
-<h2>Adventures</h2>
+<h2>Adventures (which kinds will work?)</h2>
+<div class="optionsbox">
+<?php
+    displayListAsTable('adventures', $lists, 4);
+?>
+</div>
 <?php
     displayArrayField($campaign, 'adventure');
-?>
+?>f
 
-<h2>Classes</h2>
+<h2>Classes (fun to be...)</h2>
 <?php
     displayArrayField($campaign, 'class');
 ?>
 
-<h2>Toys</h2>
+<h2>Toys (fun to use)</h2>
+<div class="optionsbox">
+<?php
+    displayListAsTable('toys', $lists, 4);
+?>
+</div>
 <?php
     displayArrayField($campaign, 'toy');
 ?>
 
-<h2>Treasure</h2>
+<h2>Treasure (fun payoffs from adventures)</h2>
+<div class="optionsbox">
+<?php
+    displayListAsTable('treasure', $lists, 4);
+?>
+</div>
 <?php
     displayArrayField($campaign, 'treasure');
 ?>
 
-<h2>Players' Intro</h2>
+<h2>Players' Intro (what you will tell them)</h2>
 <textarea name="players_intro" rows="5" cols="80"><?= $campaign->players_intro ?></textarea>
 <input type="submit">
 
-<h2>PC Creation Notes</h2>
+<h2>PC Creation Notes (how to start talking about creating fun characters)</h2>
 <textarea name="pc_creation_notes" rows="5" cols="80"><?= $campaign->pc_creation_notes ?></textarea>
 <input type="submit">
 
-<h2>First Adventures</h2>
+<h2>First five adventures, in order</h2>
 <?php
-    displayArrayField($campaign, 'first_adventure');
+    displayOrderedArrayField($campaign, 'first_adventure');
 ?>
 
 </form>
