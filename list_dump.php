@@ -13,6 +13,9 @@
     require('list_lib.php');
     $lists = new Lists;
     
+    var_dump($lists->getDefList('drivers')); return;
+    
+    
     $simpleLists = ['adventures', 'toys', 'treasure', 'whos'];
     $defLists = ['drivers'];
     

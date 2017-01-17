@@ -23,10 +23,14 @@ class Lists {
         $pair = [];
         if ($f = fopen('lists/'.$name.'.txt', 'r')) {
             while ($x = fgets($f)) {
+                #Remove utf-8 byte order mark, if present.
+                if (substr($x, 0, 3) === chr(239).chr(187).chr(191)) {
+                    $x = substr($x, 3);
+                }
                 $x = trim($x);
                 if (strlen($x)) {
-                    if ($x[0] == '>') {
-                        if ($pair) {
+                    if (0 === strpos($x, '#')) {
+                        if (sizeof($pair)) {
                             $list[] = $pair;
                         }
                         $pair = [];

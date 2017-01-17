@@ -1,7 +1,9 @@
-<?php 
-$x = ['aa', 'bb', 'cc'];
-var_dump($x);
-echo "_______________________________________________\r\n";
-$x = array_splice($x, 1, 1);
-var_dump($x);
+<?php
+
+$name = 'drivers';
+$f = fopen('lists/'.$name.'.txt', 'r');
+while ($x = fgets($f)) {
+    echo 'Line: '.trim($x);
+}
+fclose($f);
 
