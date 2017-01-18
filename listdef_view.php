@@ -1,7 +1,7 @@
 <?php
 
 # Expects $campaign, and a logged in session.
-require_once('campaign_view_lib.php');
+require_once('view_lib.php');
 ?>
 <!DOCTYPE html>
 <html>

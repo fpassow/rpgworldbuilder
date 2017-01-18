@@ -16,7 +16,7 @@
 
 <?php
     require('topnav.php');
-    require('campaign_view_lib.php');
+    require('view_lib.php');
     require('list_lib.php');
     $lists = new Lists;
 ?>

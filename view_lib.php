@@ -1,5 +1,6 @@
 <?php
 
+#Display current values plus a form field for editing something on a campaign
 function displayArrayField($campaign, $name) {
     echo "<ul>\r\n";
     $i = 0;
@@ -14,6 +15,7 @@ function displayArrayField($campaign, $name) {
     echo '<input type="submit">'."\r\n";
 }
 
+#Display current values plus a form field for editing something on a campaign
 function displayOrderedArrayField($campaign, $name) {
     echo "<ol>\r\n";
     $i = 0;
@@ -28,6 +30,7 @@ function displayOrderedArrayField($campaign, $name) {
     echo '<input type="submit">'."\r\n";
 }
 
+#Display a static list of ideas for the user to look at while creating a campaign
 function displayList($name, $lists) {
     echo '<div>';
     foreach ($lists->getList($name) as $x) {
@@ -36,6 +39,7 @@ function displayList($name, $lists) {
     echo "</div>\r\n";
 }
 
+#Display a static list of ideas for the user to look at while creating a campaign
 function displayListAsTable($name, $lists, $columns) {
     echo '<table><tr><td>';
     $this_list = $lists->getList($name);
@@ -50,7 +54,8 @@ function displayListAsTable($name, $lists, $columns) {
     }
     echo "</td></tr></table>\r\n";  
 }
-
+#Display a static list of ideas for the user to look at while creating a campaign
+# plus links to more information about each.
 function displayDefListAsTable($name, $lists, $columns, $target) {
     echo '<table><tr><td>';
     $this_list = $lists->getDefList($name);
