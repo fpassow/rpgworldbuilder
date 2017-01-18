@@ -9,8 +9,6 @@ if (session_status() == PHP_SESSION_NONE){
 
 require_once('model.php');
 $model = new Model;
-
-require('list_lib.php');
 $lists = new Lists;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

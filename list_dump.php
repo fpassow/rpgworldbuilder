@@ -10,7 +10,7 @@
 <div id="main">
 
 <?php
-    require('list_lib.php');
+    require('model.php');
     $lists = new Lists;
     
     var_dump($lists->getDefList('drivers')); return;

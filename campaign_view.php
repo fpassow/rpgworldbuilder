@@ -17,7 +17,6 @@
 <?php
     require('topnav.php');
     require('view_lib.php');
-    require('list_lib.php');
     $lists = new Lists;
 ?>
 

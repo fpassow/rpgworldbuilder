@@ -5,7 +5,6 @@ if(session_status() == PHP_SESSION_NONE){
 }
 
 require_once('model.php');
-
 $model = new Model;
 
 if (!$_SESSION['isloggedin']) {
