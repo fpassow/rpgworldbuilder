@@ -30,13 +30,13 @@ class Lists {
                 $x = trim($x);
                 if (strlen($x)) {
                     if (0 === strpos($x, '#')) {
-                        if (sizeof($pair)) {
+                        if (isset($pair[0])) {
                             $list[] = $pair;
                         }
                         $pair = [];
                         $pair[0] = trim(substr($x, 1));
                     } else {
-                        if (isset($pair[1])) {
+                        if (isset($pair[0]) and isset($pair[1])) {
                             $pair[1] = $pair[1].' '.$x;
                         } else {
                             $pair[1] = $x;
