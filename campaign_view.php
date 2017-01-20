@@ -1,29 +1,13 @@
 <?php
+require('top.php');
 
-# Expects $campaign, and a logged in session.
-
+if (!isset($is_new_campaign) or !$is_new_campaign) {
+    echo '<div>';
+    echo '<a href="import.php?importto='.$campaign->id.'">Import another campaign</a> ';
+    echo '<a href="delete.php?deleteid='.$campaign->id.'">Delete this campaign</a> ';
+    echo '</div>;';
+}
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Campaign Tool</title>
-<link rel="stylesheet" type="text/css" href="campaign.css">
-</head>
-<body>
-
-<div id="main">
-
-<?php
-    require('topnav.php');
-    require('view_lib.php');
-    $lists = new Lists;
-?>
-
-<div>
-    <a href="import.php?importto=<?= $campaign->id ?>">Import another campaign</a>
-    <a href="delete.php?deleteid=<?= $campaign->id ?>">Delete this campaign</a>
-</div>
 
 <form action="updatecampaign.php" method="POST">
 <input type="hidden" name="id" value="<?= $campaign->id ?>">

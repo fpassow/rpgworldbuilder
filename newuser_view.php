@@ -1,16 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Campaign Tool</title>
-<link rel="stylesheet" type="text/css" href="campaign.css">
-</head>
-<body>
-
-<div id="main">
-
 <?php
-    require('topnav.php');
+require('top.php');
 ?>
 
 <h1>Create Account</h1>

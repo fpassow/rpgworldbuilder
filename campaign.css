@@ -1,4 +1,27 @@
-
+#main {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#topnav {
+    border: 1px solid black;
+}
+#toprightnav {
+    float: right;
+}
+div.array_item {
+    border: 1px solid black;
+    margin: 10px;
+}
+input {
+    width: 90%;
+}
+textarea {
+    width: 100%;
+}
+.camp_controls {
+    text-align: right;
+}
 table {
     width: 100%;
 }
@@ -10,25 +33,6 @@ div.optionsbox {
     border: 1px solid #c0c0c0;
 }
 
-#main {
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-div.array_item {
-    border: 1px solid black;
-    margin: 10px;
-}
-
-input {
-    width: 90%;
-}
-textarea {
-    width: 100%;
-}
-.camp_controls {
-    text-align: right;
-}
 
 
 

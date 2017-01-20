@@ -18,4 +18,6 @@ $user = $model->getUser($_SESSION['username']);
 $campaign = new Campaign($user->username);
 $user->campaigns[] = $campaign;
 $model->storeUser($user);  
+
+$is_new_campaign = true;
 require('campaign_view.php');

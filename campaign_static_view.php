@@ -1,20 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Campaign Tool</title>
-<link rel="stylesheet" type="text/css" href="campaign.css">
-</head>
-<body>
-
-<div id="main">
-
-<div id="nav">
-    <?php
-        require('topnav.php');
-    ?>
-</div>
-
+<?php
+require('top.php');
+?>
 
 <h2>Title</h2>
 <p><?= $campaign->title ?>"</p>
