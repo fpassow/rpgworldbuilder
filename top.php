@@ -10,19 +10,19 @@
 <div id="main">
 
 <div id="topnav">
-    <a href="home.php">Home</a> &nbsp;
+    <a href="home.php">Home</a> 
     <?php
     
         require('view_lib.php');
         $lists = new Lists;
         
         if (isset($_SESSION['isloggedin']) and $_SESSION['isloggedin']) {
-            echo ' &nbsp; <a href="mycampaigns.php">My Campaigns</a>';
-            echo ' &nbsp; <a href="newcampaign.php">New Campaign</a> ';
-            echo ' <div id="toprightnav"><a href="logout.php">Logout</a>';
-            echo ' &nbsp; Logged in as <b>'.$_SESSION['username'].'</b>';
+            echo ' &nbsp; &nbsp; <a href="mycampaigns.php">My Campaigns</a>';
+            echo ' &nbsp; &nbsp; <a href="newcampaign.php">New Campaign</a> ';
+            echo ' &nbsp; &nbsp; <div id="toprightnav"><a href="logout.php">Logout</a>';
+            echo ' &nbsp; &nbsp; Logged in as <b>'.$_SESSION['username'].'</b>';
         } else {
-            echo '<div id="toprightnav"> &nbsp; <a href="login.php">Login</a> <a href="newuser.php">New User</a> ';
+            echo '<div id="toprightnav"> &nbsp; &nbsp; <a href="login.php">Login</a> &nbsp; <a href="newuser.php">New User</a> ';
         }
     ?>
     </div>

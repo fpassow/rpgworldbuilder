@@ -4,8 +4,8 @@ require('top.php');
 if (!isset($is_new_campaign) or !$is_new_campaign) {
     echo '<div>';
     echo '<a href="import.php?importto='.$campaign->id.'">Import another campaign</a> ';
-    echo '<a href="delete.php?deleteid='.$campaign->id.'">Delete this campaign</a> ';
-    echo '</div>;';
+    echo ' &nbsp; &nbsp; <a href="delete.php?deleteid='.$campaign->id.'">Delete this campaign</a> ';
+    echo '</div>';
 }
 ?>
 
