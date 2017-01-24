@@ -8,10 +8,11 @@ class Model {
     # Returns array of strings
     function getUserNames() {
         $userFiles = scandir('users');
-        array_splice($userFiles, 0, 2);# Remove "." and ".."
         $userNames = [];
         foreach ($userFiles as $f) {
-            $userNames[] = rtrim(ltrim($f, 'user_'), '.txt');
+            if (substr($f, 0, 5) === 'user_') {
+                $userNames[] = rtrim(ltrim($f, 'user_'), '.txt');
+            }
         }
         return $userNames;
     }
