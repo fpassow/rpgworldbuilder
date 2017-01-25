@@ -15,8 +15,8 @@ class Model {
         $userFiles = scandir($this->data_dir.'users');
         $userNames = [];
         foreach ($userFiles as $f) {
-            if (substr($f, 0, 5) === $this->data_dir.'user_') {
-                $userNames[] = rtrim(ltrim($f, '$this->data_dir/user_'), '.txt');
+            if (substr($f, 0, 5) === 'user_') {
+                $userNames[] = rtrim(ltrim($f, 'user_'), '.txt');
             }
         }
         return $userNames;
