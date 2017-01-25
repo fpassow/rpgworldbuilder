@@ -1,4 +1,5 @@
 <?php
+$pagetitle = " my campaigns";
 require('top.php');
 ?>
 

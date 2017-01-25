@@ -1,4 +1,5 @@
 <?php
+$pagetitle = "new user";
 require('top.php');
 ?>
 
@@ -12,10 +13,10 @@ require('top.php');
 <input name="username">
 
 <h2>Password</h2>
-<input name="password">
+<input type="password" name="password">
 
 <h2>Password again</h2>
-<input name="password2">
+<input type="password" name="password2">
 
 <br><br><input type="submit">
 </form>

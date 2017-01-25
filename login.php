@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['username']) and isset($_POST['password'])) {
         $username = trim($_POST['username']);
         $password = trim($_POST['password']);
-        if (strlen($username) and ctype_alnum($username) and ctype_alnum($password)) {
+        if (strlen($username) and ctype_alnum($username)) {
             $user = $model->getUser($username);
             if ($user) {
                 if ($user->password == $password) {

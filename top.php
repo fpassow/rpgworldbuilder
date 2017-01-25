@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Campaign Tool</title>
+<title>rpgworldbuilder: <?= $pagetitle ?></title>
 <link rel="stylesheet" type="text/css" href="campaign.css">
 </head>
 <body>

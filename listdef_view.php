@@ -1,4 +1,5 @@
 <?php
+$pagetitle = "drivers: $term";
 require('top.php');
 ?>
 

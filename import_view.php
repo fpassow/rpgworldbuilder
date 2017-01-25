@@ -1,4 +1,5 @@
 <?php
+$pagetitle = "import";
 require('top.php');
 ?>
 

@@ -1,4 +1,5 @@
 <?php
+$pagetitle = "home";
 require('top.php');
 ?>
 

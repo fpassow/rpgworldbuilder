@@ -1,4 +1,5 @@
 <?php
+$pagetitle = $campaign->title;
 require('top.php');
 
 if (!isset($is_new_campaign) or !$is_new_campaign) {

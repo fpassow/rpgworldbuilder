@@ -16,8 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') { #GET, etc.
         $password = trim($_POST['password']);
         $password2 = trim($_POST['password2']);
         if (strlen($username) and ctype_alnum($username) 
-            and strlen($password) and ctype_alnum($password)
-            and $password == $password2) {
+            and strlen($password) and $password == $password2) {
                 
             if ($model->getUser($username)) {
                 $message = "User already exists.";
@@ -34,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') { #GET, etc.
                 return;
             }
         } else { #Invalid name or pw.
-            $message = 'Username and password must contain only letters and numbers. And password fields must match.';
+            $message = 'Username must contain only letters and numbers. And password fields must match.';
             require('newuser_view.php');
         }
     } #Missing params
