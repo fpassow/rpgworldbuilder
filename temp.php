@@ -9,9 +9,10 @@
 
 <div id="main">
 
-<div id="topnav">
-aaa bbb ccc
-<div style="float:right">ddd</div>
+<?php
+$x = parse_ini_file('SETTINGS.txt');
+var_dump($x);
+?>
 </div>
 
 </body>

@@ -5,13 +5,18 @@
 #   So compatibility with the eventual persistence layer is more important than efficiency today.
 class Model {
     
+    function __construct() {
+        $this->settings = parse_ini_file('SETTINGS.txt');
+        $this->data_dir = $this->settings['data_dir'].'/';
+    }
+    
     # Returns array of strings
     function getUserNames() {
-        $userFiles = scandir('users');
+        $userFiles = scandir($this->data_dir.'users');
         $userNames = [];
         foreach ($userFiles as $f) {
-            if (substr($f, 0, 5) === 'user_') {
-                $userNames[] = rtrim(ltrim($f, 'user_'), '.txt');
+            if (substr($f, 0, 5) === $this->data_dir.'user_') {
+                $userNames[] = rtrim(ltrim($f, '$this->data_dir/user_'), '.txt');
             }
         }
         return $userNames;
@@ -19,8 +24,8 @@ class Model {
     
     # Returns a User object (with all its Campaign objects)
     function getUser($username) {
-        if (file_exists('users\user_'.$username.'.txt')) {
-            return unserialize(file_get_contents('users\user_'.$username.'.txt')); 
+        if (file_exists($this->data_dir.'users/user_'.$username.'.txt')) {
+            return unserialize(file_get_contents($this->data_dir.'users\user_'.$username.'.txt')); 
         } else {
             return null;
         }
@@ -54,7 +59,7 @@ class Model {
     
     # Takes a User object and stores it on disk
     function storeUser($user) {
-        $f = fopen('users\\user_'.$user->username.'.txt', 'w');
+        $f = fopen($this->data_dir.'users\\user_'.$user->username.'.txt', 'w');
         fwrite($f, serialize($user));
         fclose($f);
     }
