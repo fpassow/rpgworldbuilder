@@ -10,9 +10,8 @@ function displayArrayField($campaign, $name) {
                   .'&fieldname='.$name.'&index='. $i++;
         echo '">delete</a>)</li>'."\r\n";
     }
-    echo '<li><input name="'.$name.'"></li>'."\r\n";
+    echo '<li><input name="'.$name.'"><input type="submit" value="save" class="subbutt"></li>'."\r\n";
     echo "</ul>\r\n";
-    echo '<input type="submit">'."\r\n";
 }
 
 #Display current values plus a form field for editing something on a campaign

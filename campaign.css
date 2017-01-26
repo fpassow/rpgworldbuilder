@@ -26,7 +26,10 @@ div.array_item {
     margin: 10px;
 }
 input {
-    width: 90%;
+    width: 85%;
+}
+input.subbutt {
+    width: 10%;
 }
 textarea {
     width: 100%;
