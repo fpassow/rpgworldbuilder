@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>rpgworldbuilder: <?= $pagetitle ?></title>
 <link rel="stylesheet" type="text/css" href="campaign.css">
+<script src="js/jquery-3.1.1.min.js"></script>
 </head>
 <body>
 

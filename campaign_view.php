@@ -9,6 +9,7 @@ if (!isset($is_new_campaign) or !$is_new_campaign) {
     echo '</div>';
 }
 ?>
+<script src="campaign_view.js"></script>
 
 <form action="updatecampaign.php" method="POST">
 <input type="hidden" name="id" value="<?= $campaign->id ?>">
@@ -36,7 +37,6 @@ if (!isset($is_new_campaign) or !$is_new_campaign) {
 
 <h2>PCs are....</h2>
 <textarea name="pcs_are" rows="5" cols="80"><?= $campaign->pcs_are ?></textarea>
-<input type="submit">
 
 <h2>People, Groups, and Things in the World</h2>
 <?php
@@ -54,7 +54,7 @@ if (!isset($is_new_campaign) or !$is_new_campaign) {
 </div>
 <?php
     displayArrayField($campaign, 'adventure');
-?>f
+?>
 
 <h2>Classes (fun to be...)</h2>
 <?php
@@ -83,16 +83,15 @@ if (!isset($is_new_campaign) or !$is_new_campaign) {
 
 <h2>Players' Intro (what you will tell them)</h2>
 <textarea name="players_intro" rows="5" cols="80"><?= $campaign->players_intro ?></textarea>
-<input type="submit">
 
 <h2>PC Creation Notes (how to start talking about creating fun characters)</h2>
 <textarea name="pc_creation_notes" rows="5" cols="80"><?= $campaign->pc_creation_notes ?></textarea>
-<input type="submit">
 
 <h2>First five adventures, in order</h2>
 <?php
     displayOrderedArrayField($campaign, 'first_adventure');
 ?>
+<input type="submit" value="SAVE">
 
 </form>
 

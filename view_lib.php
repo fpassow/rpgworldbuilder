@@ -10,7 +10,7 @@ function displayArrayField($campaign, $name) {
                   .'&fieldname='.$name.'&index='. $i++;
         echo '">delete</a>)</li>'."\r\n";
     }
-    echo '<li><input name="'.$name.'"><input type="submit" value="save" class="subbutt"></li>'."\r\n";
+    echo '<li><input name="'.$name.'"></li>'."\r\n";
     echo "</ul>\r\n";
 }
 
@@ -26,7 +26,6 @@ function displayOrderedArrayField($campaign, $name) {
     }
     echo '<li><input name="'.$name.'"></li>'."\r\n";
     echo "</ol>\r\n";
-    echo '<input type="submit">'."\r\n";
 }
 
 #Display a static list of ideas for the user to look at while creating a campaign
