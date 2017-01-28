@@ -1,5 +1,5 @@
 #main {
-    max-width: 600px;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
     font-family: "Verdana", sans-serif;
@@ -22,11 +22,10 @@ h3 {
     float: right;
 }
 div.array_item {
-    border: 1px solid black;
     margin: 10px;
 }
 input {
-    width: 90%;
+    width: 100%;
 }
 textarea {
     width: 100%;

@@ -8,7 +8,7 @@ require_once('model.php');
 
 $model = new Model;
 
-if (!$_SESSION['isloggedin']) {
+if (!isset($_SESSION['isloggedin']) or !$_SESSION['isloggedin']) {
         $message = 'Must be logged in.';
         require('status401.php');
         return;

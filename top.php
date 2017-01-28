@@ -11,7 +11,7 @@
 <div id="main">
 
 <div id="topnav">
-    <a href="home.php">Home</a> 
+    <a href="home.php">Home</a> &nbsp; &nbsp; <a href="campaignlist.php">Campaigns</a>
     <?php
     
         require('view_lib.php');

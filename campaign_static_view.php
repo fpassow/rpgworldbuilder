@@ -3,11 +3,9 @@ $pagetitle = $campaign->title;
 require('top.php');
 ?>
 
-<h2>Title</h2>
-<p><?= $campaign->title ?>"</p>
-<div>Owner: <?= $campaign->username ?></div>
+<h2><?= $campaign->title ?></h2>
+<div>By <?= $campaign->username ?></div>
 
-<h2>Seed Text</h2>
 <p><?= $campaign->seed_text ?></p>
 
 <h2>Campaign Drivers</h2>
@@ -58,7 +56,7 @@ require('top.php');
 <h2>Treasure</h2>
 <?php
     foreach ($campaign->treasure as $x) {
-        echo '<div class="array_item">['.$x.']</div>'."\r\n";
+        echo '<div class="array_item">'.$x.'</div>'."\r\n";
     }
 ?>
 

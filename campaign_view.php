@@ -89,9 +89,9 @@ if (!isset($is_new_campaign) or !$is_new_campaign) {
 
 <h2>First five adventures, in order</h2>
 <?php
-    displayOrderedArrayField($campaign, 'first_adventure');
+    displayArrayField($campaign, 'first_adventure');
 ?>
-<input type="submit" value="SAVE">
+<br><br><input type="submit" value="SAVE">
 
 </form>
 
