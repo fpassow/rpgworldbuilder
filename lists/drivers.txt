@@ -1,6 +1,8 @@
 ﻿#Job with Missions
 
-<p>PCs work for someone who sends them on adventures. James Bond works for MI6. Rebels work for the Rebel Alliance. Brave knights work for their king. And the Agents of Shield work for… you guessed it.</p>
+<p>PCs work for someone who sends them on adventures. James Bond works for MI6. Rebels work for the Rebel Alliance. Captain Jack Harkness works for Torchwood. Brave knights work for their king. Torchwood works for the Queen. And the Agents of Shield work for… you guessed it.</p>
+
+<p>And vast powers can still have small and obscure jobs. Lots of normal agents work for the FBI. But Fox Mulder does too.</p>
 
 <p>But the varieties of jobs are endless. Consider space rescue, robot repair, planetary survey, and animal control officer in a fantasy city. And there are dozens of variations on "police": regular police, frontier sherrif, time police, magic police, and space police. Whenever a group has rules, they can have police to enforce them.</p>
 

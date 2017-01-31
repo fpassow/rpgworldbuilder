@@ -10,7 +10,7 @@ function displayArrayField($campaign, $name) {
                   .'&fieldname='.$name.'&index='. $i++;
         echo '">delete</a>)</li>'."\r\n";
     }
-    echo '<li><input name="'.$name.'"></li>'."\r\n";
+    echo '<li><input name="'.$name.'" id="'.$name.'"></li>'."\r\n";
     echo "</ul>\r\n";
 }
 
@@ -24,7 +24,7 @@ function displayOrderedArrayField($campaign, $name) {
                   .'&fieldname='.$name.'&index='. $i++;
         echo '">delete</a>)</li>'."\r\n";
     }
-    echo '<li><input name="'.$name.'"></li>'."\r\n";
+    echo '<li><input name="'.$name.'" id="'.$name.'"></li>'."\r\n";
     echo "</ol>\r\n";
 }
 

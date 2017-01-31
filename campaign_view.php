@@ -13,12 +13,13 @@ if (!isset($is_new_campaign) or !$is_new_campaign) {
 
 <form action="updatecampaign.php" method="POST">
 <input type="hidden" name="id" value="<?= $campaign->id ?>">
+<input type="hidden" name="focus_here" id="focus_here" value="<?= $focus_here ?>">
 
 <h2>Title</h2>
-<input name="title" value="<?= $campaign->title ?>">
+<input name="title" id="title" value="<?= $campaign->title ?>">
 
 <h2>Seed Text</h2>
-<textarea name="seed_text" rows="5" cols="80"><?= $campaign->seed_text ?></textarea>
+<textarea name="seed_text" id="seed_text" rows="5" cols="80"><?= $campaign->seed_text ?></textarea>
 
 <h2>Campaign Drivers</h2>
 <div class="optionsbox">
@@ -36,7 +37,7 @@ if (!isset($is_new_campaign) or !$is_new_campaign) {
 ?>
 
 <h2>PCs are....</h2>
-<textarea name="pcs_are" rows="5" cols="80"><?= $campaign->pcs_are ?></textarea>
+<textarea name="pcs_are" id="pcs_are" rows="5" cols="80"><?= $campaign->pcs_are ?></textarea>
 
 <h2>People, Groups, and Things in the World</h2>
 <?php
@@ -82,10 +83,10 @@ if (!isset($is_new_campaign) or !$is_new_campaign) {
 ?>
 
 <h2>Players' Intro (what you will tell them)</h2>
-<textarea name="players_intro" rows="5" cols="80"><?= $campaign->players_intro ?></textarea>
+<textarea name="players_intro" id="players_intro" rows="5" cols="80"><?= $campaign->players_intro ?></textarea>
 
 <h2>PC Creation Notes (how to start talking about creating fun characters)</h2>
-<textarea name="pc_creation_notes" rows="5" cols="80"><?= $campaign->pc_creation_notes ?></textarea>
+<textarea name="pc_creation_notes" name="pc_creation_notes" rows="5" cols="80"><?= $campaign->pc_creation_notes ?></textarea>
 
 <h2>First five adventures, in order</h2>
 <?php

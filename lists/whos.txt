@@ -1,46 +1,43 @@
-Friends
+PEOPLE (BY RELATIONSHIP)
+Friend
 Family
-Neighbors
-Locals
-Foreigners
-Enemies
-Allies
-Protectors
+Neighbor
+Enemie
+Allie
+Protector
 Protected
-Buyers
-Sellers
-Annoyances
-Powers
-Commanders
-Bosses
-Underlings
-Employees
-Minions
-Governments
-Businesses
-Corporations
-Families
-Freelancers
-Competitors
-Unknowns
-Races
-Species
-Professions
-Religions
-Volunteer Groups
-Political Groups
-Interest Groups
-Schools
-Guilds
-Acquaintances
-Peers
-Stronger
-Weaker
+Buyer
+Seller
+Annoyance
+Commander
+Boss
+Underling
+Employee
+Minion
+Competitor
+Unknown
+Peer
+Fan
 Teacher
 Student
-Secret Societies
-Conspiracies
-Crusades
+
+GROUPS
+Government
+Businesse
+Corporation
+Family
+Race
+Species
+Profession
+Religion
+Volunteer Group
+Political Group
+Interest Group
+School
+Guild
+Secret Society
+Conspiracy
+Crusaders
 Animals
 Robots
 Ghosts

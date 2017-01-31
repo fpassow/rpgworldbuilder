@@ -13,7 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     return;
 }
 
-
 if (!isset($_GET['id'])) {
     $message = 'Missing id parameter.';
     require('status401.php');
@@ -23,6 +22,11 @@ $id = $_GET['id'];
 $campaign = $model->getCampaignByID($id);
 if ($campaign) {
 if (isset($_SESSION['isloggedin']) and $_SESSION['isloggedin'] and $campaign->username == $_SESSION['username']) {
+        if (array_key_exists('focus_here', $_GET)) {
+            $focus_here = $_GET['focus_here'];
+        } else {
+            $focus_here = '';
+        }
         require('campaign_view.php');
         return;
     } else {
