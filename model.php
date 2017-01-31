@@ -117,13 +117,13 @@ class Campaign {
     var $players_intro = '';
     var $pc_creation_notes = '';
     
-    var $arrayFields = ['driver','place','person_group_thing','class','toy','treasure',
+    var $arrayFields = ['driver','place','person_group_thing','character_class','toy','treasure',
                        'adventure','first_adventure'];
     
     var $driver = [];
     var $place = [];
     var $person_group_thing = [];
-    var $class = [];
+    var $character_class = [];
     var $toy = [];
     var $treasure = [];
     var $adventure = [];

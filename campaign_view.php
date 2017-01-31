@@ -59,7 +59,7 @@ if (!isset($is_new_campaign) or !$is_new_campaign) {
 
 <h2>Classes (fun to be...)</h2>
 <?php
-    displayArrayField($campaign, 'class');
+    displayArrayField($campaign, 'character_class');
 ?>
 
 <h2>Toys (fun to use)</h2>
@@ -86,7 +86,7 @@ if (!isset($is_new_campaign) or !$is_new_campaign) {
 <textarea name="players_intro" id="players_intro" rows="5" cols="80"><?= $campaign->players_intro ?></textarea>
 
 <h2>PC Creation Notes (how to start talking about creating fun characters)</h2>
-<textarea name="pc_creation_notes" name="pc_creation_notes" rows="5" cols="80"><?= $campaign->pc_creation_notes ?></textarea>
+<textarea name="pc_creation_notes" id="pc_creation_notes" rows="5" cols="80"><?= $campaign->pc_creation_notes ?></textarea>
 
 <h2>First five adventures, in order</h2>
 <?php

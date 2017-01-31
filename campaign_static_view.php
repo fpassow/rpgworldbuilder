@@ -41,7 +41,7 @@ require('top.php');
 
 <h2>Classes</h2>
 <?php
-    foreach ($campaign->class as $x) {
+    foreach ($campaign->character_class as $x) {
         echo '<div class="array_item">'.$x.'</div>'."\r\n";
     }
 ?>

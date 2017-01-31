@@ -7,7 +7,23 @@ $(document).ready(function() {
         $("form")[0].submit();
     });
     
+    var nextFocus = {
+        title: 'seed_text',
+        seed_text: 'driver',
+        driver: 'driver',
+        place: 'place',
+        pcs_are: 'person_group_thing',
+        person_group_thing: 'person_group_thing',
+        adventure: 'adventure',
+        character_class: 'character_class',
+        toy: 'toy',
+        treasure: 'treasure',
+        players_intro: 'pc_creation_notes',
+        pc_creation_notes: 'first_adventure',
+        first_adventure: 'first_adventure'
+    };
+        
     //Take the id to focus on coming from the server, and focus there.
-    $('#' + $('#focus_here').val() ).focus();
+    $('#' + nextFocus[ $('#focus_here').val()] ).focus();
  
 });
