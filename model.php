@@ -139,7 +139,7 @@ class Campaign {
                 $this->$fieldName = $arr[$fieldName];
             }
         }
-               
+        //TODO: DRIVE THIS FROM THE LIST OF ARRAY FIELDS
         if (isset($arr['driver']) and (null !== $arr['driver']) and strlen(trim($arr['driver']))) {
             $this->driver[] = $arr['driver'];
         }
@@ -149,8 +149,8 @@ class Campaign {
         if (isset($arr['person_group_thing']) and (null !== $arr['person_group_thing']) and strlen(trim($arr['person_group_thing']))) {
             $this->person_group_thing[sizeof($this->person_group_thing)] = $arr['person_group_thing'];
         }
-        if (isset($arr['class']) and (null !== $arr['class']) and strlen(trim($arr['class']))) {
-            $this->class[sizeof($this->class)] = $arr['class'];
+        if (isset($arr['character_class']) and (null !== $arr['character_class']) and strlen(trim($arr['character_class']))) {
+            $this->character_class[sizeof($this->character_class)] = $arr['character_class'];
         }
         if (isset($arr['toy']) and (null !== $arr['toy']) and strlen(trim($arr['toy']))) {
             $this->toy[sizeof($this->toy)] = $arr['toy'];
