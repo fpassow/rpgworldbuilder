@@ -1,0 +1,10 @@
+
+
+
+
+
+
+
+
+
+* Allow new users to start creating a campaign before (explicitly) creating an account. 

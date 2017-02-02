@@ -81,3 +81,8 @@ li {
 li:last-child {
   border: none;
 }
+
+.message {
+    font-size: 120%;
+    color: red;
+}

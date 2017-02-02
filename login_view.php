@@ -1,6 +1,10 @@
 <?php
 $pagetitle = "login";
 require('top.php');
+
+if (isset($message)) {
+    echo '<div class="message">'.$message.'</div>';
+}
 ?>
 
 <form action="login.php" method="POST">
