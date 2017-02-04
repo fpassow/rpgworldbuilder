@@ -27,137 +27,152 @@
 {
     "name": "Campaign",
     "label": "Campaign",
-    "instructions": "",
+    "instructions": "Use this form to expand an idea or inspiration into a playable RPG campaign.",
     "fields": [
         {
             "name": "title",
             "label": "Title",
             "instructions": "",
+            "longtext": false,
             "isarrayfield": false,
             "hints": []            
     
         },
-
         {
             "name": "seed_text",
             "label": "Seed Text",
             "instructions": "Anything...",
+            "longtext": true,
             "isarrayfield": false,
+            "hints": []            
+        },
+        {
+            "name": "mood",
+            "label": "Mood",
+            "instructions": "Grim, exciting, zany, lyrical, tactical, dream-like, happy, sad, desparate, exuberent, etc. How will the players feel?",
+            "longtext": false,
+            "isarrayfield": false,
+            "hints": []            
+        },
+        {
+            "name": "visual_style",
+            "label": "Visual Style",
+            "instructions": "How do you see it in your mind? Does it look like a favorite movie, comic, artist, etc.?",
+            "longtext": false,
+            "isarrayfield": false,
+            "hints": []            
+        }, 
+        {
+            "name": "scene",
+            "label": "Scenes",
+            "instructions": "Some scenes or events thay might happen in this world. They can be past or future, large or small. They don't even have to involve PCs."
+            "longtext": false,
+            "isarrayfield": true,
+            "hints": []            
+        },
+        {
+            "name": "driver",
+            "label": "Drivers",
+            "instructions": "These are pattens for writing playable adventures. Pick some and describe their parts and how they work in this case."
+            "longtext": false,
+            "isarrayfield": true,
+            "hints": [************************************]            
+    
+        },
+        {
+            "name": "place",
+            "label": "Places",
+            "instructions": "Describe some places where the action happens. Anything from a cockpit to a continent."
+            "longtext": false,
+            "isarrayfield": true,
+            "hints": []            
+        },
+        {
+            "name": "pcs_are",
+            "label": "The PCs are...",
+            "instructions": "Who are the PCs in all this?",
+            "longtext": true,
+            "isarrayfield": false,
+            "hints": []            
+        },
+        {
+            "name": "person_group_thing"
+            "label":
+            "instructions":
+            "longtext": false,
+            "isarrayfield": true,
+            "hints": [*********************************************]            
+    
+        },
+        {
+            "name": "adventure",
+            "label": "Adventures",
+            "instructions": "How can you run some of these classic adventure types?"
+            "longtext": false,
+            "isarrayfield": true|false
+            "hints": [******************************************]            
+    
+        },
+
+        {
+            "name": "character_class",
+            "label": "Character Classes",
+            "instructions": "Types of people, who they are, and what they do.",
+            "longtext": false,
+            "isarrayfield": true,
             "hints": []            
     
         },
 
         {
-            "name": "driver",
-            "label": "Drivers",
-            "instructions": "Pick some and describe their parts and how they work in this case."
-            "isarrayfield": true|false
-            "hints": [HINT, HINT,...]            
+            "name": "toy",
+            "label": "Toys",
+            "instructions": "Fun to use...",
+            "longtext": false,
+            "isarrayfield": true,
+            "hints": [************************************]            
     
         },
-
         {
-            "name":
-            "label":
-            "instructions":
-            "isarrayfield": true|false
-            "hints": [HINT, HINT,...]            
+            "name": "treasure",
+            "label": "Treasures",
+            "instructions": "Rewards from successful adventures.",
+            "longtext": false,
+            "isarrayfield": true,
+            "hints": [******************************************]            
     
         },
-
         {
-            "name":
-            "label":
-            "instructions":
-            "isarrayfield": true|false
-            "hints": [HINT, HINT,...]            
+            "name": "players_intro",
+            "label": "Players' Introduction",
+            "instructions": "Tell the players about the world",
+            "longtext": true,
+            "isarrayfield": false,
+            "hints": []            
     
         },
-
         {
-            "name":
-            "label":
-            "instructions":
-            "isarrayfield": true|false
-            "hints": [HINT, HINT,...]            
+            "name": "pc_creation_notes",
+            "label": "PC Creations Notes",
+            "instructions": "Tell the players who they are, and who they can be.",
+            "longtext": true,
+            "isarrayfield": false,
+            "hints": []            
     
         },
-
         {
-            "name":
-            "label":
-            "instructions":
-            "isarrayfield": true|false
-            "hints": [HINT, HINT,...]            
+            "name": "first_adventure",
+            "label": "First Adventures",
+            "instructions": "Sketch some adventures, starting from the first, to draw the player into the world.",
+            "longtext": true,
+            "isarrayfield": true,
+            "hints": []            
     
-        },
-
-        {
-            "name":
-            "label":
-            "instructions":
-            "isarrayfield": true|false
-            "hints": [HINT, HINT,...]            
-    
-        },
-
-        {
-            "name":
-            "label":
-            "instructions":
-            "isarrayfield": true|false
-            "hints": [HINT, HINT,...]            
-    
-        },        
+        }       
     ]
 }
- 
-    driver
-    place
-    pcs_are
-    person_group_thing
-    adventure
-    character_class
-    toy
-    treasure
-    players_intro
-    pc_creation_notes
-    first_adventure
- 
-    var $simpleFields = ['title','seed_text','pcs_are','players_intro','pc_creation_notes'];
-      
-    var $title = '';
-    var $seed_text = '';
-    var $pcs_are = '';
-    var $players_intro = '';
-    var $pc_creation_notes = '';
     
-    var $arrayFields = ['driver','place','person_group_thing','character_class','toy','treasure',
-                       'adventure','first_adventure'];
-    
-    var $driver = [];
-    var $place = [];
-    var $person_group_thing = [];
-    var $character_class = [];
-    var $toy = [];
-    var $treasure = [];
-    var $adventure = [];
-    var $first_adventure = [];
-    
-    title
-    seed_text
-    driver
-    place
-    pcs_are
-    person_group_thing
-    adventure
-    character_class
-    toy
-    treasure
-    players_intro
-    pc_creation_notes
-    first_adventure
-}
+
 
 
 #Source of lists of options and ideas
