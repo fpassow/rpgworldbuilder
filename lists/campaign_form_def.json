@@ -168,7 +168,64 @@
             "instructions": "Fun to use...",
             "longtext": false,
             "isarrayfield": true,
-            "hints": [************************************]            
+            "hints": [
+                {
+                    "label": "Weapons",
+                    "description": ""
+                },
+                {
+                    "label": "Tools",
+                    "description": ""
+                },
+                {
+                    "label": "Spells",
+                    "description": ""
+                },
+                {
+                    "label": "Magic Items",
+                    "description": ""
+                },
+                {
+                    "label": "Vehicles",
+                    "description": ""
+                },
+                {
+                    "label": "Animals",
+                    "description": ""
+                },
+                {
+                    "label": "Magic Powers",
+                    "description": ""
+                },
+                {
+                    "label": "Species Powers",
+                    "description": ""
+                },
+                {
+                    "label": "Cyber Powers",
+                    "description": ""
+                },
+                {
+                    "label": "Skills",
+                    "description": ""
+                },
+                {
+                    "label": "Abilities",
+                    "description": ""
+                },
+                {
+                    "label": "Extraordinary skills and abilities",
+                    "description": ""
+                },
+                {
+                    "label": "Social status",
+                    "description": ""
+                },
+                {
+                    "label": "Authority",
+                    "description": ""
+                }
+            ]            
         },
         {
             "name": "treasure",
