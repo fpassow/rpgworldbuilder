@@ -1,22 +1,6 @@
 <?php
 
-# JSON format:
-#
-# FORM_DEF = {
-#
-#     label:
-#     instructions:
-#     fields: [FIELD, FIELD...]     name:
-# }
-# 
-# FIELD = {
-#     name:
-#     label:
-#     instructions:
-#     isarrayfield: true|false
-#     hints: [HINT, HINT,...]
-# }
-# 
+
 # HINT = {
 #     name:
 #     text:
@@ -36,7 +20,6 @@
             "longtext": false,
             "isarrayfield": false,
             "hints": []            
-    
         },
         {
             "name": "seed_text",
@@ -77,7 +60,6 @@
             "longtext": false,
             "isarrayfield": true,
             "hints": [************************************]            
-    
         },
         {
             "name": "place",
@@ -88,21 +70,28 @@
             "hints": []            
         },
         {
-            "name": "pcs_are",
-            "label": "The PCs are...",
-            "instructions": "Who are the PCs in all this?",
-            "longtext": true,
+            "name": "group"
+            "label": "Groups",
+            "instructions": "",
+            "longtext": false,
+            "isarrayfield": true,
+            "hints": [*********************************************]            
+        },
+        {
+            "name": "person"
+            "label": "People",
+            "instructions": "",
+            "longtext": false,
             "isarrayfield": false,
             "hints": []            
         },
         {
-            "name": "person_group_thing"
-            "label":
-            "instructions":
-            "longtext": false,
-            "isarrayfield": true,
-            "hints": [*********************************************]            
-    
+            "name": "pcs_are",
+            "label": "The PCs are...",
+            "instructions": "Write a few lines about who PCs are in all this.",
+            "longtext": true,
+            "isarrayfield": false,
+            "hints": []            
         },
         {
             "name": "adventure",
@@ -111,19 +100,15 @@
             "longtext": false,
             "isarrayfield": true|false
             "hints": [******************************************]            
-    
         },
-
         {
             "name": "character_class",
             "label": "Character Classes",
-            "instructions": "Types of people, who they are, and what they do.",
+            "instructions": "Types of people, who they are, and what they do. (This is about the world. It's fine if they are not actually part of the rules.",
             "longtext": false,
             "isarrayfield": true,
             "hints": []            
-    
         },
-
         {
             "name": "toy",
             "label": "Toys",
@@ -131,7 +116,6 @@
             "longtext": false,
             "isarrayfield": true,
             "hints": [************************************]            
-    
         },
         {
             "name": "treasure",
@@ -140,7 +124,6 @@
             "longtext": false,
             "isarrayfield": true,
             "hints": [******************************************]            
-    
         },
         {
             "name": "players_intro",
@@ -149,7 +132,6 @@
             "longtext": true,
             "isarrayfield": false,
             "hints": []            
-    
         },
         {
             "name": "pc_creation_notes",
@@ -158,16 +140,14 @@
             "longtext": true,
             "isarrayfield": false,
             "hints": []            
-    
         },
         {
             "name": "first_adventure",
             "label": "First Adventures",
-            "instructions": "Sketch some adventures, starting from the first, to draw the player into the world.",
+            "instructions": "Sketch some adventures to draw the player into the world.",
             "longtext": true,
             "isarrayfield": true,
             "hints": []            
-    
         }       
     ]
 }
