@@ -4,7 +4,6 @@
 # HINT = {
 #     name:
 #     text:
-#     instructions: <-- optional
 # }
 #     
 >?
@@ -48,7 +47,7 @@
         {
             "name": "scene",
             "label": "Scenes",
-            "instructions": "Some scenes or events thay might happen in this world. They can be past or future, large or small. They don't even have to involve PCs."
+            "instructions": "Some scenes or events from this world. They can be past or future, large or small. They don't even have to involve PCs."
             "longtext": false,
             "isarrayfield": true,
             "hints": []            
@@ -98,7 +97,7 @@
             "label": "Adventures",
             "instructions": "How can you run some of these classic adventure types?"
             "longtext": false,
-            "isarrayfield": true|false
+            "isarrayfield": true,
             "hints": [
                 {
                     "label": "Assault",
@@ -233,7 +232,39 @@
             "instructions": "Rewards from successful adventures.",
             "longtext": false,
             "isarrayfield": true,
-            "hints": [******************************************]            
+            "hints": [
+                {
+                    "label": "Toys...",
+                    "description": ""
+                {
+                    "label": "Repairs",
+                    "description": ""
+                },
+                {
+                    "label": "Healing",
+                    "description": ""
+                },
+                {
+                    "label": "Supplies",
+                    "description": ""
+                },
+                {
+                    "label": "Spells",
+                    "description": ""
+                },
+                {
+                    "label": "Referrals",
+                    "description": ""
+                },
+                {
+                    "label": "Tips",
+                    "description": ""
+                },
+                {
+                    "label": "Tricks",
+                    "description": ""
+                }
+            ]            
         },
         {
             "name": "players_intro",

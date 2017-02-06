@@ -1,37 +1,110 @@
-Friends
-Favors
-Fame
-Allies
-Contacts
-Trust
-Training
-Letters of Introduction
-Secrets
-Information
-Cash
-Precious Metals
-Precious Stones
-Art
-Valuables
-Weapons
-Tools
-Real estate
-Refuge
-Transportation
-Services
-Titles
-Status
-Membership
-Promotion
-Repairs
-Healing
-Supplies
-Fuel
-Ammunition
-Spells
-Adventures
-Contracts
-Referrals
-Tips
-Maps
-Ideas
+                {
+                    "label": "Friends",
+                    "description": ""
+                },
+                {
+                    "label": "Favors",
+                    "description": ""
+                },
+                {
+                    "label": "Fame",
+                    "description": ""
+                },
+                {
+                    "label": "Contacts",
+                    "description": ""
+                },
+                {
+                    "label": "Training",
+                    "description": ""
+                },
+                {
+                    "label": "Letters of Introduction",
+                    "description": ""
+                },
+                {
+                    "label": "Secrets",
+                    "description": ""
+                },
+                {
+                    "label": "Information",
+                    "description": ""
+                },
+                {
+                    "label": "Cash",
+                    "description": ""
+                },
+                {
+                    "label": "Valuables",
+                    "description": ""
+                },
+                {
+                    "label": "Weapons",
+                    "description": ""
+                },
+                {
+                    "label": "Tools",
+                    "description": ""
+                },
+                {
+                    "label": "Real estate",
+                    "description": ""
+                },
+                {
+                    "label": "Refuge",
+                    "description": ""
+                },
+                {
+                    "label": "Transportation",
+                    "description": ""
+                },
+                {
+                    "label": "Services",
+                    "description": ""
+                },
+                {
+                    "label": "Titles",
+",
+                    "description": ""
+                },
+                {
+                    "label": "Status",
+                    "description": ""
+                },
+                {
+                    "label": "Membership",
+                    "description": ""
+                },
+                {
+                    "label": "Promotion",
+                    "description": ""
+                },
+                {
+                    "label": "Repairs",
+                    "description": ""
+                },
+                {
+                    "label": "Healing",
+                    "description": ""
+                },
+                {
+                    "label": "Supplies",
+                    "description": ""
+                },
+                {
+                    "label": "Spells",
+                    "description": ""
+                },
+                {
+                    "label": "Referrals",
+                    "description": ""
+                },
+                {
+                    "label": "Tips",
+                    "description": ""
+                },
+                {
+                    "label": "Tricks",
+                    "description": ""
+                }
+
