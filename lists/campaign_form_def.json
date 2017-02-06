@@ -38,7 +38,7 @@
         {
             "name": "scene",
             "label": "Scenes",
-            "instructions": "Some scenes or events from this world. They can be past or future, large or small. They don't even have to involve PCs."
+            "instructions": "Some scenes or events from this world. They can be past or future, large or small. They don't even have to involve PCs.",
             "longtext": false,
             "isarrayfield": true,
             "hints": []            
@@ -46,15 +46,15 @@
         {
             "name": "driver",
             "label": "Drivers",
-            "instructions": "These are pattens for writing playable adventures. Pick some and describe their parts and how they work in this case."
+            "instructions": "These are pattens for writing playable adventures. Pick some and describe their parts and how they work in this case.",
             "longtext": false,
             "isarrayfield": true,
             "hints": [
-                {"label": "Job with Missions", "description": "<p>PCs work for someone who sends them on adventures. James Bond works for MI6. Rebels work for the Rebel Alliance. Captain Jack Harkness works for Torchwood. Brave knights work for their king. Torchwood works for the Queen. And the Agents of Shield work for… you guessed it.</p><p>And vast powers can still have small and obscure jobs. Lots of normal agents work for the FBI. But Fox Mulder does too.</p><p>But the varieties of jobs are endless. Consider space rescue, robot repair, planetary survey, and animal control officer in a fantasy city. And there are dozens of variations on "police": regular police, frontier sherrif, time police, magic police, and space police. Whenever a group has rules, they can have police to enforce them.</p>"},
+                {"label": "Job with Missions", "description": "<p>PCs work for someone who sends them on adventures. James Bond works for MI6. Rebels work for the Rebel Alliance. Captain Jack Harkness works for Torchwood. Brave knights work for their king. Torchwood works for the Queen. And the Agents of Shield work for… you guessed it.</p><p>And vast powers can still have small and obscure jobs. Lots of normal agents work for the FBI. But Fox Mulder does too.</p><p>But the varieties of jobs are endless. Consider space rescue, robot repair, planetary survey, and animal control officer in a fantasy city.</p><p>And there are dozens of variations on \"police\": regular police, frontier sherrif, time police, magic police, and space police. Whenever a group has rules, they can have police to enforce them.</p>"},
                 {"label": "Secret War", "description": "<p>The secret part allows the setting to look like our everyday world. (Or the everyday medieval world, etc.)</p><p>Secret War is often combined with Job With Missions. But it can also work without the chain of command. Vampires vs Werewolves. Magical threats vs Magical Defenders.</p>"},
                 {"label": "War", "description": "<p>A full-blown war gives soldiers (and others) an unlimited supply of missions and other excitement.</p>"},
                 {"label": "Freelancers", "description": "<p>Paid freelancers include Ghostbusters(tm), private detectives, mercenaries, etc. PCs can be guns for hire, swords for hire, spells for hire, cyberdecks for hire, or have fast ships (or other vehicles or transport methods, for hire.</p><p>The PCs are contacted by their customers, and paid to go on adventures.</p>"},
-                {"label": "Treasure Hunters", "description": "<p>Treasure hunters seek valuables that have no current owner. They are popular in fiction. And raiding a dangerous tomb is a straightforward adventure. This it a very simple driver, which is both its greatest strength and its greatest weakness.</p><p>Also, treasure hunters who are after the Big Score will either get tired of failing, or succeed and retire. So consider mixing this with at least on other driver. Or start with it and transition to something else.</p>"}.
+                {"label": "Treasure Hunters", "description": "<p>Treasure hunters seek valuables that have no current owner. They are popular in fiction. And raiding a dangerous tomb is a straightforward adventure. This it a very simple driver, which is both its greatest strength and its greatest weakness.</p><p>Also, treasure hunters who are after the Big Score will either get tired of failing, or succeed and retire. So consider mixing this with at least on other driver. Or start with it and transition to something else.</p>"},
                 {"label": "Privateers", "description": "<p>Privateers were like pirates who operated during a war. They had permission from their side to attack and rob ships belonging to the other side.</p><p>In traditional fantasy RPGs, parties of humans, elves, and dwarves are free to invade the homes of orcs, trolls, and goblins, dragons., and take their stuff.</p><p>Robin Hood robbed the rich with the approval of the poor. And the thieves of fantasy cities are accepted back on their side of town when the return with loot lifted from the fat nobles and merchants.</p>"},
                 {"label": "Quest", "description": "<p>A long process, usually a journey, to get a single thing. Works best for short campaigns or as a nested driver. The advantage is a single crystal clear goal. The disadvantage is that it can be hard to stack a large number of adventures in front of that goal.</p><p>A quest can be nested inside a longer campaign.</p><p>Or the PCs might go about the business of the other driver, always alert for any clue that might allow them to advance their quest.</p>"},
                 {"label": "Colony", "description": "<p>PCs are part of a group trying to make a new life in a new world. Use as the setting for one or more other drivers.</p>"},
@@ -81,13 +81,13 @@
         {
             "name": "place",
             "label": "Places",
-            "instructions": "Describe some places where the action happens. Anything from a cockpit to a continent."
+            "instructions": "Describe some places where the action happens. Anything from a cockpit to a continent.",
             "longtext": false,
             "isarrayfield": true,
             "hints": []            
         },
         {
-            "name": "group"
+            "name": "group",
             "label": "Groups",
             "instructions": "",
             "longtext": false,
@@ -118,7 +118,7 @@
             ]            
         },
         {
-            "name": "person"
+            "name": "person",
             "label": "People",
             "instructions": "",
             "longtext": false,
@@ -129,7 +129,7 @@
                 {"label": "Neighbor", "description": ""},
                 {"label": "Enemy", "description": ""},
                 {"label": "Danger", "description": ""},
-                {"label": "Ally, "description": ""},
+                {"label": "Ally", "description": ""},
                 {"label": "Protector", "description": ""},
                 {"label": "Protected", "description": ""},
                 {"label": "Buyer", "description": ""},
@@ -159,7 +159,7 @@
         {
             "name": "adventure",
             "label": "Adventures",
-            "instructions": "How can you run some of these classic adventure types?"
+            "instructions": "How can you run some of these classic adventure types?",
             "longtext": false,
             "isarrayfield": true,
             "hints": [
@@ -300,6 +300,7 @@
                 {
                     "label": "Toys...",
                     "description": ""
+                },
                 {
                     "label": "Repairs",
                     "description": ""
