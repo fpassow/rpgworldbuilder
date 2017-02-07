@@ -33,20 +33,29 @@ if (!isset($_GET['index'])) {
 
 $name = $_GET['name'];
 $index = $_GET['index'];
-$deflist = $model->def->fields //where field.name === $name
-if (!$deflist) {
-    $message = 'List "'.$name.' does not exist.';
+$field = false;
+if ($name) {
+    foreach ($model->def->fields as $f) {
+        if ($f->name == $name) {
+            $field = $f;
+            break;
+        }
+    }
+}
+        
+if (!$field) {
+    $message = 'Field "'.$name.' does not exist.';
     require('status404.php');
     return; 
 }
 $index = intval($index);
-if (!isset($deflist[$index])) {
+if (!isset($field->hints[$index])) {
     $message = 'Index "'.$index.' does not exist in list '.$name.'.';
     require('status404.php');
     return;  
 }
-$term = $deflist[$index][0];
-$def = $deflist[$index][1];
+$term = $field->hints[$index]->label;
+$def = $field->hints[$index]->description;
 
 require('listdef_view.php');
 

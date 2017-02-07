@@ -10,6 +10,5 @@ require('top.php');
 </div>
 
 <h2><?= $term ?></h2>
-<h2>Parts:</h2>
 <h2>How it works:</h2>
 <p><?= $def ?>
