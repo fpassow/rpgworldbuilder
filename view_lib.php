@@ -54,19 +54,25 @@ function displayListAsTable($name, $lists, $columns) {
 }
 #Display a static list of ideas for the user to look at while creating a campaign
 # plus links to more information about each.
-function displayDefListAsTable($name, $lists, $columns, $target) {
-    echo '<table><tr><td>';
-    $this_list = $lists->getDefList($name);
-    $per_col = intval(sizeof($this_list) / $columns);
-    $index = 0;
-    $count = 0;
-    foreach ($this_list as $x) {
-        echo '<a target="'.$target.'" href="listdef.php?name='.$name.'&index='.$index.'">'.$x[0].'<a><br>';
-        if ($count++ == $per_col) {
-            echo "\r\n</td><td>";
-            $count = 0;
+function displayDefListAsTable($field, $columns, $target) {
+    if (isset($field->hints) and count($field->hints)) {
+        echo '<div class="deflist"><table><tr><td>';
+        $per_col = intval(count($field->hints) / $columns);
+        $index = 0;
+        $count = 0;
+        $fieldName = $field->name;
+        foreach ($field->hints as $hint) {
+            if (isset($hint->description) and strlen($hint->description)) {
+                echo '<a target="'.$target.'" href="listdef.php?name='.$fieldName.'&index='.$index.'">'.$hint->label.'<a><br>';
+            } else {
+                echo $hint->label.'<br>';
+            }
+            if ($count++ == $per_col) {
+                echo "\r\n</td><td>";
+                $count = 0;
+            }
+            $index++;
         }
-        $index++;
-    }
-    echo "</td></tr></table>\r\n";  
+        echo "</td></tr></table></div>\r\n"; 
+    }        
 }

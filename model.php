@@ -8,6 +8,33 @@ class Model {
     function __construct() {
         $this->settings = parse_ini_file('SETTINGS.txt');
         $this->data_dir = $this->settings['data_dir'].'/';
+# JSON format:
+#
+# FORM_DEF = {
+#     name:
+#     label:
+#     description:
+#     fields: [FIELD, FIELD...]
+# }
+# 
+# FIELD = {
+#     name:
+#     label:
+#     description:
+#     isarrayfield: true|false
+#     hints: [HINT, HINT,...]
+# }
+# 
+# HINT = {
+#     label
+#     description:
+# }
+#    
+        $this->def = json_decode(file_get_contents('campaign_form_def.json'));
+    }
+    
+    function getDef() {
+        return $this->def;
     }
     
     # Returns array of strings

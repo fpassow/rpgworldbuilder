@@ -9,7 +9,6 @@ if (session_status() == PHP_SESSION_NONE){
 
 require_once('model.php');
 $model = new Model;
-$lists = new Lists;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo "Expected GET.";
@@ -34,7 +33,7 @@ if (!isset($_GET['index'])) {
 
 $name = $_GET['name'];
 $index = $_GET['index'];
-$deflist = $lists->getDefList($name);
+$deflist = $model->def->fields //where field.name === $name
 if (!$deflist) {
     $message = 'List "'.$name.' does not exist.';
     require('status404.php');

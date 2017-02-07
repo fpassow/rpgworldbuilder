@@ -15,11 +15,18 @@ if (!isset($is_new_campaign) or !$is_new_campaign) {
 <input type="hidden" name="id" value="<?= $campaign->id ?>">
 <input type="hidden" name="focus_here" id="focus_here" value="<?= $focus_here ?>">
 
-<h2>Title</h2>
-<input name="title" id="title" value="<?= $campaign->title ?>">
+<?php
+foreach ($model->def->fields as $field) {
+    echo '<h2>'.$field->label."</h2>\r\n";
+    echo '<div class="instructions">'.$field->instructions."</div>\r\n";
+    displayDefListAsTable($field, 4, '_blank');
+    
+    
+}
 
-<h2>Seed Text</h2>
-<textarea name="seed_text" id="seed_text" rows="5" cols="80"><?= $campaign->seed_text ?></textarea>
+
+####################################
+/*
 
 <h2>Campaign Drivers</h2>
 <div class="optionsbox">
@@ -92,6 +99,11 @@ if (!isset($is_new_campaign) or !$is_new_campaign) {
 <?php
     displayArrayField($campaign, 'first_adventure');
 ?>
+
+*/
+####################################################################
+?>
+
 <br><br><input type="submit" value="SAVE">
 
 </form>
