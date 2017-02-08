@@ -20,7 +20,7 @@ foreach ($model->def->fields as $field) {
     $fieldname = $field->name;
     echo '<h2>'.$field->label."</h2>\r\n";
     echo '<div class="instructions">'.$field->instructions."</div>\r\n";
-    displayDefListAsTable($field, 4, '_blank');
+    displayDefListAsTable($field, 4, 'def');
     if ($field->isarrayfield) {
         displayArrayField($campaign, $fieldname);
     } else {
