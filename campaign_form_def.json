@@ -122,7 +122,7 @@
             "label": "People",
             "instructions": "",
             "longtext": false,
-            "isarrayfield": false,
+            "isarrayfield": true,
             "hints": [
                 {"label": "Friend", "description": ""},
                 {"label": "Family", "description": ""},
@@ -209,11 +209,11 @@
                 },
                 {
                     "label": "Mystery",
-                    "description": "Attack a place"
+                    "description": ""
                 },
                 {
                     "label": "Con",
-                    "description": "Attack a place"
+                    "description": ""
                 }
             ]            
         },
