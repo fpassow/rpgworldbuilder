@@ -126,7 +126,6 @@ class User {
 }
 
 class Campaign {
-    #### FUN BITS
     
     function __construct($username) {
         $this->id = uniqid();
@@ -135,9 +134,7 @@ class Campaign {
     
     var $id;
     var $username;
-    
-    var $simpleFields = ['title','seed_text','pcs_are','players_intro','pc_creation_notes'];
-      
+         
     var $title = '';
     var $seed_text = '';
     var $pcs_are = '';
@@ -145,10 +142,7 @@ class Campaign {
     var $pc_creation_notes = '';
     var $mood = "";
     var $visual_style = "";
-    
-    var $arrayFields = ['driver','place','person_group_thing','character_class','toy','treasure',
-                       'adventure','first_adventure'];
-    
+        
     var $scene = [];
     var $driver = [];
     var $place = [];
@@ -164,36 +158,20 @@ class Campaign {
         array_splice($this->$name, $index, 1);
     }
   
-    function updateFromArray($arr) {
-        foreach ($this->simpleFields as $fieldName) {
-            if (isset($arr[$fieldName]) and (null !== $arr[$fieldName]) and strlen(trim($arr[$fieldName]))) {
-                $this->$fieldName = $arr[$fieldName];
+    function updateFromArray($arr, $fields) {
+        foreach ($fields as $field) {
+            $fieldName = $field->name;
+            if ($field->isarrayfield) {
+                if (isset($arr[$fieldName]) and (null !== $arr[$fieldName]) and strlen(trim($arr[$fieldName]))) {
+                    $x = $this->$fieldName;
+                    $x[] = $arr[$fieldName];
+                    $this->$fieldName = $x;
+                } 
+            } else {
+                if (isset($arr[$fieldName]) and (null !== $arr[$fieldName]) and strlen(trim($arr[$fieldName]))) {
+                    $this->$fieldName = $arr[$fieldName];
+                }
             }
-        }
-        //TODO: DRIVE THIS FROM THE LIST OF ARRAY FIELDS
-        if (isset($arr['driver']) and (null !== $arr['driver']) and strlen(trim($arr['driver']))) {
-            $this->driver[] = $arr['driver'];
-        }
-        if (isset($arr['place']) and (null !== $arr['place']) and strlen(trim($arr['place']))) {
-            $this->place[sizeof($this->place)] = $arr['place'];
-        }
-        if (isset($arr['person_group_thing']) and (null !== $arr['person_group_thing']) and strlen(trim($arr['person_group_thing']))) {
-            $this->person_group_thing[sizeof($this->person_group_thing)] = $arr['person_group_thing'];
-        }
-        if (isset($arr['character_class']) and (null !== $arr['character_class']) and strlen(trim($arr['character_class']))) {
-            $this->character_class[sizeof($this->character_class)] = $arr['character_class'];
-        }
-        if (isset($arr['toy']) and (null !== $arr['toy']) and strlen(trim($arr['toy']))) {
-            $this->toy[sizeof($this->toy)] = $arr['toy'];
-        }
-        if (isset($arr['treasure']) and (null !== $arr['treasure']) and strlen(trim($arr['treasure']))) {
-            $this->treasure[sizeof($this->treasure)] = $arr['treasure'];
-        }
-        if (isset($arr['adventure']) and (null !== $arr['adventure']) and strlen(trim($arr['adventure']))) {
-            $this->adventure[sizeof($this->adventure)] = $arr['adventure'];
-        }
-        if (isset($arr['first_adventure']) and (null !== $arr['first_adventure']) and strlen(trim($arr['first_adventure']))) {
-            $this->first_adventure[sizeof($this->first_adventure)] = $arr['first_adventure'];
         }
     }
 }

@@ -8,12 +8,8 @@
 Pre-FormDef TODO's:
 * "Save" button at top as well as bottom
 * "What's Fun?" field under drivers field
-* Separate "people" and "groups"
 * Add cue's like "Work for...", "Members of...", "Friends of...", "Came from...", "Worked for..."
 * Save as text
 * Save as JSON
 * Change password
-* Move "Best Toys" above "people" and "groups"
-
-
 * Allow new users to start creating a campaign before (explicitly) creating an account. 

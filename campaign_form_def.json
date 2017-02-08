@@ -79,6 +79,71 @@
             ]            
         },
         {
+            "name": "toy",
+            "label": "Toys",
+            "instructions": "List a few specific things in this world which the players will love using. Common categories include...",
+            "longtext": false,
+            "isarrayfield": true,
+            "hints": [
+                {
+                    "label": "Weapons",
+                    "description": ""
+                },
+                {
+                    "label": "Tools",
+                    "description": ""
+                },
+                {
+                    "label": "Spells",
+                    "description": ""
+                },
+                {
+                    "label": "Magic Items",
+                    "description": ""
+                },
+                {
+                    "label": "Vehicles",
+                    "description": ""
+                },
+                {
+                    "label": "Animals",
+                    "description": ""
+                },
+                {
+                    "label": "Magic Powers",
+                    "description": ""
+                },
+                {
+                    "label": "Species Powers",
+                    "description": ""
+                },
+                {
+                    "label": "Cyber Powers",
+                    "description": ""
+                },
+                {
+                    "label": "Skills",
+                    "description": ""
+                },
+                {
+                    "label": "Abilities",
+                    "description": ""
+                },
+                {
+                    "label": "Extraordinary skills and abilities",
+                    "description": ""
+                },
+                {
+                    "label": "Social status",
+                    "description": ""
+                },
+                {
+                    "label": "Authority",
+                    "description": ""
+                }
+            ]            
+        },
+        {
             "name": "place",
             "label": "Places",
             "instructions": "Describe some places where the action happens. Anything from a cockpit to a continent.",
@@ -224,71 +289,6 @@
             "longtext": false,
             "isarrayfield": true,
             "hints": []            
-        },
-        {
-            "name": "toy",
-            "label": "Toys",
-            "instructions": "Fun to use...",
-            "longtext": false,
-            "isarrayfield": true,
-            "hints": [
-                {
-                    "label": "Weapons",
-                    "description": ""
-                },
-                {
-                    "label": "Tools",
-                    "description": ""
-                },
-                {
-                    "label": "Spells",
-                    "description": ""
-                },
-                {
-                    "label": "Magic Items",
-                    "description": ""
-                },
-                {
-                    "label": "Vehicles",
-                    "description": ""
-                },
-                {
-                    "label": "Animals",
-                    "description": ""
-                },
-                {
-                    "label": "Magic Powers",
-                    "description": ""
-                },
-                {
-                    "label": "Species Powers",
-                    "description": ""
-                },
-                {
-                    "label": "Cyber Powers",
-                    "description": ""
-                },
-                {
-                    "label": "Skills",
-                    "description": ""
-                },
-                {
-                    "label": "Abilities",
-                    "description": ""
-                },
-                {
-                    "label": "Extraordinary skills and abilities",
-                    "description": ""
-                },
-                {
-                    "label": "Social status",
-                    "description": ""
-                },
-                {
-                    "label": "Authority",
-                    "description": ""
-                }
-            ]            
         },
         {
             "name": "treasure",
