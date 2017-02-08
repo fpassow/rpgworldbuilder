@@ -122,7 +122,7 @@
             "label": "People",
             "instructions": "",
             "longtext": false,
-            "isarrayfield": false,
+            "isarrayfield": true,
             "hints": [
                 {"label": "Friend", "description": ""},
                 {"label": "Family", "description": ""},

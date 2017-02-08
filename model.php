@@ -143,13 +143,17 @@ class Campaign {
     var $pcs_are = '';
     var $players_intro = '';
     var $pc_creation_notes = '';
+    var $mood = "";
+    var $visual_style = "";
     
     var $arrayFields = ['driver','place','person_group_thing','character_class','toy','treasure',
                        'adventure','first_adventure'];
     
+    var $scene = [];
     var $driver = [];
     var $place = [];
-    var $person_group_thing = [];
+    var $group= [];
+    var $person = [];
     var $character_class = [];
     var $toy = [];
     var $treasure = [];
