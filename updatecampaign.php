@@ -38,7 +38,7 @@ if ($campaign) {
 }
 
 $username = $_SESSION['username'];
-$campaign->updateFromArray($_POST);
+$campaign->updateFromArray($_POST, $model->getDef()->fields);
 $user = $model->getUser($username);
 $user->updateCampaign($campaign);
 $model->storeUser($user);
