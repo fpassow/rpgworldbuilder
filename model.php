@@ -155,7 +155,9 @@ class Campaign {
     var $first_adventure = [];
     
     function deleteItem($name, $index) {
-        array_splice($this->$name, $index, 1);
+        $arr = $this->$name;
+        array_splice($arr, $index, 1);
+        $this->$name = $arr;
     }
   
     function updateFromArray($arr, $fields) {

@@ -37,7 +37,7 @@ if ($campaign) {
 }
 if (isset($_GET['fieldname']) and isset($_GET['index']) and $_GET['fieldname'] and $_GET['index']) {
     $username = $_SESSION['username'];
-    echo '>>>>>>>>>'.$_GET['fieldname'].'|||'. intval($_GET['index']).'<<<<<<<';
+    echo $campaign->id. ', '.$_GET['fieldname'].', '.$_GET['index'].'<<<<';
     $campaign->deleteItem($_GET['fieldname'], intval($_GET['index']));
     $user = $model->getUser($username);
     $user->updateCampaign($campaign);
