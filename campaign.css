@@ -9,6 +9,12 @@
     padding: 10px 0px 10px 0px;
     border-bottom: 1px solid #888888;
 }
+
+.submit_button {
+    width:20%;
+    align: right;
+}
+
 h1 {
     font-size: 120%;
 }
@@ -30,9 +36,7 @@ input {
 textarea {
     width: 100%;
 }
-.camp_controls {
-    text-align: right;
-}
+
 table {
     width: 100%;
 }
@@ -65,19 +69,15 @@ a:active {
     background-color: blue;
 }
 
-
-
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
- 
 li {
   font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
   border-bottom: 1px solid #ccc;
 }
- 
 li:last-child {
   border: none;
 }
