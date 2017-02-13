@@ -43,7 +43,9 @@ $user = $model->getUser($username);
 $user->updateCampaign($campaign);
 $model->storeUser($user);
 if (array_key_exists('focus_here', $_POST) and strlen(trim($_POST['focus_here']))) {
+    $focus_here = nextFocus($focus_here, $model->getDef());
     header('Location: campaign.php?id='.$campaign->id.'&focus_here='.$_POST['focus_here'], true, 303);
 } else {
     header('Location: campaign.php?id='.$campaign->id, true, 303);
 }
+

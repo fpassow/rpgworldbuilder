@@ -1,4 +1,5 @@
 <?php
+
 $pagetitle = $campaign->title;
 require('top.php');
 
@@ -13,7 +14,7 @@ if (!isset($is_new_campaign) or !$is_new_campaign) {
 
 <form action="updatecampaign.php" method="POST">
 <input type="hidden" name="id" value="<?= $campaign->id ?>">
-<input type="hidden" name="focus_here" id="focus_here" value="<?= $focus_here ?>">
+<input type="hidden" name="focus_here" id="focus_here" value="<?= htmlspecialchars(nextFocus($focus_here, $model->getDef())) ?>">
 <input type="submit" value="SAVE" class="submit_button">
 
 <?php

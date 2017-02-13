@@ -76,3 +76,22 @@ function displayDefListAsTable($field, $columns, $target) {
         echo "</td></tr></table></div>\r\n"; 
     }        
 }
+
+
+function nextFocus($lastFocus, $def) {
+    $fields = $def->fields;
+    for ($i= 0; $i < sizeof($fields); $i++) {
+        if ($fields[$i]->name == $lastFocus) {
+            if ($fields[$i]->isarrayfield) {
+                return $lastFocus;
+            } else {
+                if ($i+1 < sizeof($fields)) {
+                    return $fields[$i + 1]->name;
+                } else {
+                    $lastFocus;
+                }
+            }
+        }
+    }
+    return $lastFocus;
+}

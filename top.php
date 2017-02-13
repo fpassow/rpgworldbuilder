@@ -14,7 +14,7 @@
     <a href="home.php">Home</a> &nbsp; &nbsp; <a href="campaignlist.php">Campaigns</a>
     <?php
     
-        require('view_lib.php');
+        require_once('view_lib.php');
         $lists = new Lists;
         
         if (isset($_SESSION['isloggedin']) and $_SESSION['isloggedin']) {
