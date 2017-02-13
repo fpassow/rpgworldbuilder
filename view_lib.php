@@ -5,7 +5,7 @@ function displayArrayField($campaign, $name) {
     echo "<ul>\r\n";
     $i = 0;
     foreach ($campaign->$name as $x) {
-        echo '<li>'.$x;
+        echo '<li>'.htmlspecialchars($x);
         echo '(<a href="deletearrayitem.php?campaignid='.$campaign->id
                   .'&fieldname='.$name.'&index='. $i++;
         echo '">delete</a>)</li>'."\r\n";
@@ -19,7 +19,7 @@ function displayOrderedArrayField($campaign, $name) {
     echo "<ol>\r\n";
     $i = 0;
     foreach ($campaign->$name as $x) {
-        echo '<li>'.$x;
+        echo '<li>'.htmlspecialchars($x);
         echo '(<a href="deletearrayitem.php?campaignid='.$campaign->id
                   .'&fieldname='.$name.'&index='. $i++;
         echo '">delete</a>)</li>'."\r\n";

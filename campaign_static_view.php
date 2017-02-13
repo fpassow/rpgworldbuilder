@@ -10,10 +10,10 @@ foreach ($fields as $field) {
     $name = $field->name;
     if ($field->isarrayfield) {
         foreach ($campaign->$name as $x) {
-            echo '<div class="array_item">'.$x.'</div>'."\r\n";
+            echo '<div class="array_item">'.htmlspecialchars($x).'</div>'."\r\n";
         }
     } else {
-        echo '<div>'.$campaign->$name."</div>\r\n";
+        echo '<div>'.htmlspecialchars($campaign->$name)."</div>\r\n";
     }  
 }
 ?>

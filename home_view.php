@@ -20,11 +20,5 @@ organized some things that have worked in the past, and built them into this too
 <p><a href="newcampaign.php"><b>Try it</b></a>. 
 Or look at <a href="campaignlist.php"><b>what others have done</b></a>.</p>
 
-
-
-
-
-
-
 </body>
 </html>
