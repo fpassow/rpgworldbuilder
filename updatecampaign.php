@@ -1,4 +1,5 @@
 <?php
+require_once('view_lib.php'); # for nextFocus(...)
 
 if(session_status() == PHP_SESSION_NONE){
     session_start();
