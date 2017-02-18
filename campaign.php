@@ -11,13 +11,12 @@ $campaign = $model->getCampaignByID($id);
 if ($campaign) {
     if ($isloggedin and $campaign->username == $username) {
         $focus_here = tryGET['focus_here'];
-            require('campaign_view.php');
-        } else {
-            require('campaign_static_view.php'); 
-        }
+        require('campaign_view.php');
     } else {
-        $message = 'Campagin id '.$id.' not found.';
-        require('status404.php');
-        return;
+        require('campaign_static_view.php'); 
     }
+} else {
+    $message = 'Campagin id '.$id.' not found.';
+    require('status404.php');
+    return;
 }
