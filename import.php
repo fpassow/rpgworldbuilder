@@ -1,42 +1,29 @@
 <?php
+require_once('init.php');
 
-if(session_status() == PHP_SESSION_NONE){
-    session_start();
-}
-require_once('model.php');
-$model = new Model;
-
-if ($_SERVER['REQUEST_METHOD'] != 'GET') {
+if ($method != 'GET') {
     echo "Expected GET.";
     return;
 }
 
-if (!$_SESSION['isloggedin']) {
+if (!$isloggedin) {
     $message = 'Must be logged in.';
     require('status401.php');
     return;
 }
-if (!isset($_GET['importto'])) {
-    $message = 'Missing importto parameter.';
-    require('status401.php');
-    return;
-}
-if (!isset($_GET['importfrom'])) {
-    require('import_view.php');
-    return;
-}
-$to = $model->getCampaignByID($_GET['importto']);
-$from = $model->getCampaignByID($_GET['importfrom']);
+$importto = reqGET('importto');
+$importfrom = reqGET('importfrom');
+$to = $model->getCampaignByID($importto);
+$from = $model->getCampaignByID($importfrom);
 
-if ($to) {
-    if ($to->username != $_SESSION['username']) {
-        $message = 'Destingation campaign belongs to a different user.';
-        require('status403.php');
-        return;
-    }
-} else {
+if (!$to) {
     $message = 'Campagin id '.$_GET['importto'].' not found.';
     require('status400.php');
+    return;
+}
+if ($to->username != $username) {
+    $message = 'Destingation campaign belongs to a different user.';
+    require('status403.php');
     return;
 }
 if (!$from) {

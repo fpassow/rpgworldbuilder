@@ -6,6 +6,7 @@
 #  $model       See class definition below for details
 #  $method     'GET', 'POST', etc.
 #  $isloggedin  A boolean
+#  $username    If logged in
 #  #user        User object for the current user, if logged in
 #  req(GET|POST|SESSION|SERVER)(name)  Functions that return the given param, or exit the page if it's missing.
 #  try(GET|POST|SESSION|SERVER)(name)  Functions that return the given param, or empty string if it's missing.
@@ -16,14 +17,20 @@ $model = new Model;
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-$isloggedin = isset($_SESSION['isloggedin']) 
-              and $_SESSION['isloggedin']
-              and isset($_SESSION['username'])
-              and $_SESSION['username'];
-              
-if ($isloggedin) {
-    $user = $_SESSION['username']; <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+$isloggedin = false;
+if (isset($_SESSION['isloggedin']) and $_SESSION['isloggedin'] {
+    if (isset($_SESSION['username']) and $_SESSION['username']) {
+        $username = $_SESSION['username'];
+        $user = $model->getUser($username);
+    }
 }
+if ($isloggedin and !$user) {
+    $isloggedin = false;
+    $message = "User not found.";
+    require('status400.php');
+}
+              
+
 $method = $_SERVER['REQUEST_METHOD'];
  
 function reqGET($name) {

@@ -1,17 +1,11 @@
 <?php
+require_once('init.php');
 
-if(session_status() == PHP_SESSION_NONE){
-    session_start();
-}
-require_once('model.php');
-$model = new Model;
-
-if ($_SERVER['REQUEST_METHOD'] != 'GET') {
+if ($method != 'GET') {
     echo "Expected GET.";
     return;
 }
-
-if (!$_SESSION['isloggedin']) {
+if (!$isloggedin) {
     $message = 'Must be logged in.';
     require('status401.php');
     return;
@@ -21,12 +15,15 @@ if (!isset($_GET['deleteid'])) {
     require('status401.php');
     return;
 }
-$deleteid = $_GET['deleteid'];
+$deleteid = reqGet('deleteid');
 $deletethis = $model->getCampaignById($deleteid);
-
 if ($deletethis) {
-    if ($deletethis->username != $_SESSION['username']) {
-        $message = 'Destingation campaign belongs to a different user.';
+    if ($deletethis->username === $username) {
+        $user->deleteCampaign($deleteid);
+        $model->storeUser($user);
+        header('Location: mycampaigns.php', true, 303);
+    } else {
+        $message = 'Campaign belongs to a different user.';
         require('status403.php');
         return;
     }
@@ -36,8 +33,3 @@ if ($deletethis) {
     return;
 }
 
-$username = $_SESSION['username'];
-$user = $model->getUser($username);
-$user->deleteCampaign($deleteid);
-$model->storeUser($user);
-header('Location: mycampaigns.php', true, 303);

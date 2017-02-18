@@ -1,24 +1,14 @@
 <?php
+require_once('init.php');
 
-if(session_status() == PHP_SESSION_NONE){
-    session_start();
-}
-
-require_once('model.php');
-$model = new Model;
-
-if (!$_SESSION['isloggedin']) {
+if (!$isloggedin) {
         $message = 'Must be logged in.';
         require('status401.php');
         return;
 }
-if (!isset($_GET['id'])) {
-    $message = 'Missing id parameter.';
-    require('status401.php');
-    return;
-}
+$id = reqGET('id');
+
 # Create blank object
-$user = $model->getUser($_SESSION['username']);
 $otherCampaign = $model->getCampaignByID($_GET['id']);
 if (!$otherCampaign) {
     $message = 'No campaign with that ID.';
@@ -26,9 +16,8 @@ if (!$otherCampaign) {
     return;
 } 
 $campaign = clone $otherCampaign;
-$campaign->username = $_SESSION['username'];
+$campaign->username = $username;
 $campaign->id = uniqid();
-$user = $model->getUser($_SESSION['username']);
 $user->campaigns[] = $campaign;
 $model->storeUser($user);  
 require('campaign_view.php');
