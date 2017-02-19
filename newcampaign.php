@@ -1,7 +1,7 @@
 <?php
 require_once('init.php');
 
-if (!isloggedin) {
+if (!$isloggedin) {
         $message = 'Must be logged in.';
         require('status401.php');
         exit;

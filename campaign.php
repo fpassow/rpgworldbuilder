@@ -6,11 +6,11 @@ if ($method === 'POST') {
     exit;
 }
 
-$id = reqGET['id'];
+$id = reqGET('id');
 $campaign = $model->getCampaignByID($id);
 if ($campaign) {
     if ($isloggedin and $campaign->username == $username) {
-        $focus_here = tryGET['focus_here'];
+        $focus_here = tryGET('focus_here');
         require('campaign_view.php');
     } else {
         require('campaign_static_view.php'); 

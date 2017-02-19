@@ -2,4 +2,4 @@
 
 ; Directory to store data about users and their campaigns
 ; THIS DIRECTORY MUST NOT BE PUBLICLY VISIBLE. I.E. NOT UNDER WEB ROOT.
-data_dir = ../../rpgworldbuilder_data
+data_dir = ../../rpgworldbuilder/data
