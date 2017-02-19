@@ -3,7 +3,7 @@ require_once('init.php');
 
 if ($method === 'POST') {
     echo "Expected GET.";
-    return;
+    exit;
 }
 
 $id = reqGET['id'];
@@ -18,5 +18,5 @@ if ($campaign) {
 } else {
     $message = 'Campagin id '.$id.' not found.';
     require('status404.php');
-    return;
+    exit;
 }

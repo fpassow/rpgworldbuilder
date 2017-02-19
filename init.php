@@ -30,7 +30,6 @@ if ($isloggedin and !$user) {
     require('status400.php');
 }
               
-
 $method = $_SERVER['REQUEST_METHOD'];
  
 function reqGET($name) {
@@ -39,7 +38,7 @@ function reqGET($name) {
     } else {
         $message = 'Missing '.$name.' parameter.';
         require('status401.php');
-        return;
+        exit;
     }
 }
 function reqPOST($name) {
@@ -48,7 +47,7 @@ function reqPOST($name) {
     } else {
         $message = 'Missing '.$name.' parameter.';
         require('status401.php');
-        return;
+        exit;
     }
 }
 function reqSERVER($name) {
@@ -57,7 +56,7 @@ function reqSERVER($name) {
     } else {
         $message = 'Missing '.$name.' parameter.';
         require('status401.php');
-        return;
+        exit;
     }
 }
 function reqSESSION($name) {
@@ -66,7 +65,7 @@ function reqSESSION($name) {
     } else {
         $message = 'Missing '.$name.' parameter.';
         require('status401.php');
-        return;
+        exit;
     }
 }
 function tryGET($name) {
@@ -97,6 +96,3 @@ function trySESSION($name) {
         return '';
     }
 }
-
-
-

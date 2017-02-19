@@ -3,12 +3,12 @@ require_once('init.php');
 
 if ($method != 'GET') {
     echo "Expected GET.";
-    return;
+    exit;
 }
 if (!$isloggedin) {
     $message = 'Must be logged in.';
     require('status401.php');
-    return;
+    exit;
 }
 $campaignid = reqGET('campaignid');
 $campaign = $model->getCampaignByID($campaignid);
@@ -16,12 +16,12 @@ if ($campaign) {
     if ($campaign->username != $username) {
         $message = 'Campaign belongs to a different user.';
         require('status403.php');
-        return;
+        exit;
     }
 } else {
     $message = 'Campagin id '.$campaignid.' not found.';
     require('status404.php');
-    return;
+    exit;
 }
 $fieldname = reqGET('fieldname');
 $index = reqGET('index');

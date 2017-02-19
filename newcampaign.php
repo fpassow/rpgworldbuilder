@@ -1,20 +1,12 @@
 <?php
+require_once('init.php');
 
-if(session_status() == PHP_SESSION_NONE){
-    session_start();
-}
-
-require_once('model.php');
-
-$model = new Model;
-
-if (!isset($_SESSION['isloggedin']) or !$_SESSION['isloggedin']) {
+if (!isloggedin) {
         $message = 'Must be logged in.';
         require('status401.php');
-        return;
+        exit;
 }
 # Create blank object
-$user = $model->getUser($_SESSION['username']);
 $campaign = new Campaign($user->username);
 $user->campaigns[] = $campaign;
 $model->storeUser($user);  

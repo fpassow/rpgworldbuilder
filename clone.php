@@ -4,7 +4,7 @@ require_once('init.php');
 if (!$isloggedin) {
         $message = 'Must be logged in.';
         require('status401.php');
-        return;
+        exit;
 }
 $id = reqGET('id');
 
@@ -13,7 +13,7 @@ $otherCampaign = $model->getCampaignByID($_GET['id']);
 if (!$otherCampaign) {
     $message = 'No campaign with that ID.';
     require('status404.php');
-    return;
+    exit;
 } 
 $campaign = clone $otherCampaign;
 $campaign->username = $username;

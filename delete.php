@@ -3,17 +3,17 @@ require_once('init.php');
 
 if ($method != 'GET') {
     echo "Expected GET.";
-    return;
+    exit;
 }
 if (!$isloggedin) {
     $message = 'Must be logged in.';
     require('status401.php');
-    return;
+    exit;
 }
 if (!isset($_GET['deleteid'])) {
     $message = 'Missing deleteid parameter.';
     require('status401.php');
-    return;
+    exit;
 }
 $deleteid = reqGet('deleteid');
 $deletethis = $model->getCampaignById($deleteid);
@@ -25,11 +25,11 @@ if ($deletethis) {
     } else {
         $message = 'Campaign belongs to a different user.';
         require('status403.php');
-        return;
+        exit;
     }
 } else {
     $message = 'Campagin id '.$deleteid.' not found.';
     require('status400.php');
-    return;
+    exit;
 }
 

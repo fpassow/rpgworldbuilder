@@ -1,44 +1,32 @@
 <?php
+require_once('init.php');
 require_once('view_lib.php'); # for nextFocus(...)
 
-if(session_status() == PHP_SESSION_NONE){
-    session_start();
-}
-
-require_once('model.php');
-
-$model = new Model;
-
-if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+if ($method != 'POST') {
     echo "Expected POST.";
-    return;
+    exit;
 }
 
-if (!$_SESSION['isloggedin']) {
+if (!$isloggedin) {
     $message = 'Must be logged in.';
     require('status401.php');
-    return;
+    exit;
 }
-if (!isset($_POST['id'])) {
-    $message = 'Missing id parameter.';
-    require('status401.php');
-    return;
-}
-$id = $_POST['id'];
+
+$id = reqPOST('id');
 $campaign = $model->getCampaignByID($id);
 if ($campaign) {
-    if ($campaign->username != $_SESSION['username']) {
+    if ($campaign->username != $username) {
         $message = 'Campaign belongs to a different user.';
         require('status403.php');
-        return;
+        exit;
     }
 } else {
     $message = 'Campagin id '.$id.' not found.';
     require('status404.php');
-    return;
+    exit;
 }
 
-$username = $_SESSION['username'];
 $campaign->updateFromArray($_POST, $model->getDef()->fields);
 $user = $model->getUser($username);
 $user->updateCampaign($campaign);
@@ -49,4 +37,3 @@ if (array_key_exists('focus_here', $_POST) and strlen(trim($_POST['focus_here'])
 } else {
     header('Location: campaign.php?id='.$campaign->id, true, 303);
 }
-

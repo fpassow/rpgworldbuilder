@@ -8,17 +8,17 @@ if ($method === 'POST') {
     if (!$isloggedin) {
         $message = 'Not logged in.';
         require('login_view.php');
-        return;
+        exit;
     }
     if ($new_password1 != new_password2) {
         $message = 'Password fields did not match.';
         require('change_password_view.php');
-        return;
+        exit;
     }
     if ($user->password != $old_password) {
         $message = 'Incorrect password for current user.';
         require('change_password_view.php');
-        return;
+        exit;
     }
     $user->password = $password1;
     $model->storeUser($user);

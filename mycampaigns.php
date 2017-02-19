@@ -1,18 +1,8 @@
 <?php
+require_once('init.php');
 
-if(session_status() == PHP_SESSION_NONE){
-    session_start();
-}
-
-if (!$_SESSION['isloggedin']) {
+if (!$isloggedin) {
     require('login.php');
-    return;
+    exit;
 }
-
-require_once('model.php');
-    
-$model = new Model;
-$user = $model->getUser($_SESSION['username']);
-
 require('mycampaigns_view.php');
-
