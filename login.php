@@ -1,5 +1,5 @@
 <?php
-require_once('init.php');
+require('init.php');
 if ($method != 'POST') {
     #GET
     $message = '';
@@ -8,12 +8,13 @@ if ($method != 'POST') {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
     if (strlen($username) and ctype_alnum($username)) {
-        $user = $model->getUser($username);
+        $user = $model->getUser($username); var_dump($user);
         if ($user and $user->password === $password) {
             $_SESSION['username'] = $username;
             $_SESSION['isloggedin'] = true;
+            $_SESSION['foo'] = 'bar';
             $isloggedin = true;
-            require('mycampaigns.php');
+            header('Location: mycampaigns.php', true, 303);
             exit;
         }
     }

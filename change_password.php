@@ -1,5 +1,5 @@
 <?php
-require_once('init.php');
+require('init.php');
 
 if ($method === 'POST') {
     $old_password = reqPOST('password');
@@ -22,7 +22,7 @@ if ($method === 'POST') {
     }
     $user->password = $password1;
     $model->storeUser($user);
-    require('mycampaigns.php');
+    header('Location: mycampaigns.php', true, 303);
 
 } else {
     #GET

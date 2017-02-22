@@ -1,5 +1,5 @@
 <?php
-require_once('init.php');
+require('init.php');
 
 if (!$isloggedin) {
         $message = 'Must be logged in.';
@@ -18,6 +18,8 @@ if (!$otherCampaign) {
 $campaign = clone $otherCampaign;
 $campaign->username = $username;
 $campaign->id = uniqid();
+$campaign->tile = 'Clone of ' + $campaign->title;
 $user->campaigns[] = $campaign;
 $model->storeUser($user);  
 require('campaign_view.php');
+header('Location: campaign.php?id='.$campaign->id, true, 303);

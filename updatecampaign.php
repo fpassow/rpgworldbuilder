@@ -1,6 +1,6 @@
 <?php
-require_once('init.php');
-require_once('view_lib.php'); # for nextFocus(...)
+require('init.php');
+require('view_lib.php'); # for nextFocus(...)
 
 if ($method != 'POST') {
     echo "Expected POST.";

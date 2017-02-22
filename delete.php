@@ -1,5 +1,5 @@
 <?php
-require_once('init.php');
+require('init.php');
 
 if ($method != 'GET') {
     echo "Expected GET.";

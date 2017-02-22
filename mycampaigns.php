@@ -1,8 +1,9 @@
 <?php
-require_once('init.php');
+require('init.php');
 
-if (!$isloggedin) {
-    require('login.php');
-    exit;
+if ($isloggedin) {
+    require('mycampaigns_view.php');
+} else {
+    header('Location: login.php', true, 303);
 }
-require('mycampaigns_view.php');
+

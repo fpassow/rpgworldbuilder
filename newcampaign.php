@@ -1,5 +1,5 @@
 <?php
-require_once('init.php');
+require('init.php');
 
 if (!$isloggedin) {
         $message = 'Must be logged in.';
@@ -12,4 +12,4 @@ $user->campaigns[] = $campaign;
 $model->storeUser($user);  
 
 $is_new_campaign = true;
-require('campaign_view.php');
+header('Location: campaign.php?id='.$campaign->id, true, 303);

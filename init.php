@@ -10,17 +10,15 @@
 #  #user        User object for the current user, if logged in
 #  req(GET|POST|SESSION|SERVER)(name)  Functions that return the given param, or exit the page if it's missing.
 #  try(GET|POST|SESSION|SERVER)(name)  Functions that return the given param, or empty string if it's missing.
-
-require_once('model.php');
+session_start();
+require('model.php');
 $model = new Model;
 
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
 $isloggedin = false;
 if (isset($_SESSION['isloggedin']) and $_SESSION['isloggedin']) {
     if (isset($_SESSION['username']) and $_SESSION['username']) {
         $username = $_SESSION['username'];
+        $isloggedin = true;
         $user = $model->getUser($username);
     }
 }

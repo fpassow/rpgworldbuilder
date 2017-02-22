@@ -5,6 +5,4 @@ if(session_status() == PHP_SESSION_NONE){
 }
 session_destroy();
 
-require_once('init.php');
-
-require('home.php');
+header('Location: home.php', true, 303);

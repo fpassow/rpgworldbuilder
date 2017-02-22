@@ -1,5 +1,5 @@
 <?php
-require_once('init.php');
+require('init.php');
 
 if ($method != 'GET') {
     echo "Expected GET.";
@@ -25,7 +25,7 @@ if ($campaign) {
 }
 $fieldname = reqGET('fieldname');
 $index = reqGET('index');
-$campaign->deleteItem($fieldname, intval($index'));
+$campaign->deleteItem($fieldname, intval($index));
 $user->updateCampaign($campaign);
 $model->storeUser($user);
 header('Location: campaign.php?id='.$campaign->id, true, 303);

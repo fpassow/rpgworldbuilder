@@ -1,4 +1,5 @@
 <?php
+require('init.php');
 
 #Display a page defining a term from a DefList in the Lists object
 # Params: name = name of list  &  index = position in list

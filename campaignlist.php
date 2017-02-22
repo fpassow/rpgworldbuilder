@@ -1,4 +1,4 @@
 <?php
-require_once('init.php');
+require('init.php');
 
 require('campaignlist_view.php');
