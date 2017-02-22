@@ -18,7 +18,7 @@ if (!$otherCampaign) {
 $campaign = clone $otherCampaign;
 $campaign->username = $username;
 $campaign->id = uniqid();
-$campaign->tile = 'Clone of ' + $campaign->title;
+$campaign->title = 'Clone of '.$campaign->title;
 $user->campaigns[] = $campaign;
 $model->storeUser($user);  
 require('campaign_view.php');

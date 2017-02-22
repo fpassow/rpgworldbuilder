@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<?php 
+require_once('view_lib.php');
+?>
 <meta charset="UTF-8">
 <title>rpgworldbuilder: <?= $pagetitle ?></title>
 <link rel="stylesheet" type="text/css" href="campaign.css">

@@ -1,7 +1,6 @@
 <?php
 $pagetitle = $campaign->title;
 require('top.php');
-
 echo '<div>By '.$campaign->username."</div>\r\n";
 
 $fields = $model->getDef()->fields;
