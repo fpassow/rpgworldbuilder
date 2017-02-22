@@ -12,7 +12,11 @@ if (!$isloggedin) {
     exit;
 }
 $importto = reqGET('importto');
-$importfrom = reqGET('importfrom');
+$importfrom = tryGET('importfrom'); #might not be chosen yet
+if (!$importfrom) {
+    require('import_view.php'); # Choose the campaign to import 
+    exit;
+}
 $to = $model->getCampaignByID($importto);
 $from = $model->getCampaignByID($importfrom);
 
