@@ -31,7 +31,7 @@ if ($isloggedin and !$user) {
 $method = $_SERVER['REQUEST_METHOD'];
  
 function reqGET($name) {
-    if (isset($_GET[$name]) and $_GET[$name]) {
+    if (isset($_GET[$name])) {
         return trim($_GET[$name]);
     } else {
         $message = 'Missing '.$name.' parameter.';
@@ -40,7 +40,7 @@ function reqGET($name) {
     }
 }
 function reqPOST($name) {
-    if (isset($_POST[$name]) and $_POST[$name]) {
+    if (isset($_POST[$name])) {
         return trim($_POST[$name]);
     } else {
         $message = 'Missing '.$name.' parameter.';
@@ -49,7 +49,7 @@ function reqPOST($name) {
     }
 }
 function reqSERVER($name) {
-    if (isset($_SERVER[$name]) and $_SERVER[$name]) {
+    if (isset($_SERVER[$name])) {
         return trim($_SERVER[$name]);
     } else {
         $message = 'Missing '.$name.' parameter.';
@@ -58,7 +58,7 @@ function reqSERVER($name) {
     }
 }
 function reqSESSION($name) {
-    if (isset($_SESSION[$name]) and $_SESSION[$name]) {
+    if (isset($_SESSION[$name])) {
         return trim($_SESSION[$name]);
     } else {
         $message = 'Missing '.$name.' parameter.';
@@ -67,28 +67,28 @@ function reqSESSION($name) {
     }
 }
 function tryGET($name) {
-    if (isset($_GET[$name]) and $_GET[$name]) {
+    if (isset($_GET[$name])) {
         return trim($_GET[$name]);
     } else {
         return '';
     }
 }
 function tryPOST($name) {
-    if (isset($_POST[$name]) and $_POST[$name]) {
+    if (isset($_POST[$name])) {
         return trim($_POST[$name]);
     } else {
         return '';
     }
 }
 function trySERVER($name) {
-    if (isset($_SERVER[$name]) and $_SERVER[$name]) {
+    if (isset($_SERVER[$name])) {
         return trim($_SERVER[$name]);
     } else {
         return '';
     }
 }
 function trySESSION($name) {
-    if (isset($_SESSION[$name]) and $_SESSION[$name]) {
+    if (isset($_SESSION[$name])) {
         return trim($_SESSION[$name]);
     } else {
         return '';
