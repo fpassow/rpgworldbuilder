@@ -3,7 +3,7 @@
 $pagetitle = $campaign->title;
 require('top.php');
 
-if (!isset($is_new_campaign) or !$is_new_campaign) {
+if (strlen($campaign->title) {
     echo '<div>';
     echo '<a href="import.php?importto='.$campaign->id.'">Import another campaign</a> ';
     echo ' &nbsp; &nbsp; <a href="delete.php?deleteid='.$campaign->id.'">Delete this campaign</a> ';

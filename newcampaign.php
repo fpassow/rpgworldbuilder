@@ -11,5 +11,4 @@ $campaign = new Campaign($user->username);
 $user->campaigns[] = $campaign;
 $model->storeUser($user);  
 
-$is_new_campaign = true;
 header('Location: campaign.php?id='.$campaign->id, true, 303);
