@@ -59,12 +59,13 @@ class Model {
     }
     
     #Returns all user objects
+    # except for guest users
     function getUsers() {
         $userNames = $this->getUserNames();
         $users = [];
         foreach ($userNames as $n) {
             $u = $this->getUser($n);
-            if ($n) {
+            if ($n and !$u->isguest) {
                 $users[] = $u;
             }
         }
@@ -96,6 +97,7 @@ class User {
     var $username;
     var $password;
     var $campaigns = [];
+    var $isguest = false;
     
     # Replace existing version of campaign with a new one
     function updateCampaign($campaign) {
