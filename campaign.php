@@ -9,7 +9,7 @@ if ($method === 'POST') {
 $id = reqGET('id');
 $campaign = $model->getCampaignByID($id);
 if ($campaign) {
-    if ($isloggedin and $campaign->username == $username) {
+    if ($campaign->username == $username) {
         $focus_here = tryGET('focus_here');
         require('campaign_view.php');
     } else {

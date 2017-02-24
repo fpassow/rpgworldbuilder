@@ -5,11 +5,6 @@ if ($method != 'GET') {
     echo "Expected GET.";
     exit;
 }
-if (!$isloggedin) {
-    $message = 'Must be logged in.';
-    require('status401.php');
-    exit;
-}
 $campaignid = reqGET('campaignid');
 $campaign = $model->getCampaignByID($campaignid);
 if ($campaign) {

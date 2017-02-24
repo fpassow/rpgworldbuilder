@@ -6,11 +6,6 @@ if ($method != 'GET') {
     exit;
 }
 
-if (!$isloggedin) {
-    $message = 'Must be logged in.';
-    require('status401.php');
-    exit;
-}
 $importto = reqGET('importto');
 $importfrom = tryGET('importfrom'); #might not be chosen yet
 if (!$importfrom) {

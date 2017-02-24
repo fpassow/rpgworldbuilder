@@ -5,15 +5,15 @@ if ($method != 'POST') {
     $message = '';
     require('login_view.php');
 } else {
-    $username = trim($_POST['username']);
+    $new_username = trim($_POST['username']);
     $password = trim($_POST['password']);
-    if (strlen($username) and ctype_alnum($username)) {
-        $user = $model->getUser($username); var_dump($user);
-        if ($user and $user->password === $password) {
-            $_SESSION['username'] = $username;
-            $_SESSION['isloggedin'] = true;
-            $_SESSION['foo'] = 'bar';
-            $isloggedin = true;
+    if (strlen($new_username) and ctype_alnum($new_username)) {
+        $new_user = $model->getUser($new_username);
+        if ($new_user and $new_user->password === $password) {
+            $_SESSION['username'] = $new_username;
+            $isguest = false;
+            $username = $new_username;
+            $user = new_user;
             header('Location: mycampaigns.php', true, 303);
             exit;
         }

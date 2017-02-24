@@ -16,14 +16,13 @@ require_once('view_lib.php');
 <div id="topnav">
     <a href="home.php">Home</a> &nbsp; &nbsp; <a href="campaignlist.php">Campaigns</a>
     <?php   
-        if ($isloggedin) {
             echo ' &nbsp; &nbsp; <a href="mycampaigns.php">My Campaigns</a>';
             echo ' &nbsp; &nbsp; <a href="newcampaign.php">New Campaign</a> ';
             echo ' &nbsp; &nbsp; <div id="toprightnav"><a href="logout.php">Logout</a>';
             echo ' &nbsp; &nbsp; Logged in as <a href="mycampaigns.php"><b>'.$username.'</b></a>';
-        } else {
+
             echo '<div id="toprightnav"> &nbsp; &nbsp; <a href="login.php">Login</a> &nbsp; <a href="newuser.php">New User</a> ';
-        }
+        
     ?>
     </div>
 </div>

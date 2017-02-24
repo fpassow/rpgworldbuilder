@@ -7,12 +7,6 @@ if ($method != 'POST') {
     exit;
 }
 
-if (!$isloggedin) {
-    $message = 'Must be logged in.';
-    require('status401.php');
-    exit;
-}
-
 $id = reqPOST('id');
 $campaign = $model->getCampaignByID($id);
 if ($campaign) {

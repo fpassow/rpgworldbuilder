@@ -1,11 +1,6 @@
 <?php
 require('init.php');
 
-if (!$isloggedin) {
-        $message = 'Must be logged in.';
-        require('status401.php');
-        exit;
-}
 $id = reqGET('id');
 
 # Create blank object

@@ -5,11 +5,6 @@ if ($method != 'GET') {
     echo "Expected GET.";
     exit;
 }
-if (!$isloggedin) {
-    $message = 'Must be logged in.';
-    require('status401.php');
-    exit;
-}
 if (!isset($_GET['deleteid'])) {
     $message = 'Missing deleteid parameter.';
     require('status401.php');

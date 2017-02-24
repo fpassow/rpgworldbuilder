@@ -5,9 +5,9 @@ if ($method === 'POST') {
     $old_password = reqPOST('password');
     $new_password1 = reqPost'password1');
     $new_password2 = reqPOST('password2');
-    if (!$isloggedin) {
-        $message = 'Not logged in.';
-        require('login_view.php');
+    if (!$isguest) {
+        $message = 'Guest accounts may not change passwords.';
+        require('status403.php');
         exit;
     }
     if ($new_password1 != new_password2) {

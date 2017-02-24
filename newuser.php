@@ -21,8 +21,6 @@ if ($method != 'POST') {
             $user->username = $username;
             $user->password = $password;
             $model->storeUser($user);
-            $_SESSION['isloggedin'] = true;
-            $_SESSION['username'] = $username;
             header('Location: mycampaigns.php', true, 303);
             exit;
         }

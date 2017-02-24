@@ -1,33 +1,33 @@
 <?php 
-# Set userful variables and functions
+# Set userful variables and functions.
+# Note that the user is always "logged in" and has a User object.
+#    Instead of being logged in or not, a User is a regular user or a guest.
 #
 # After this runs, you will have...
 #
 #  $model       See class definition below for details
 #  $method     'GET', 'POST', etc.
-#  $isloggedin  A boolean
-#  $username    If logged in
-#  #user        User object for the current user, if logged in
+#  $isguest    A boolean
+#  $username    
+#  #user        User object for the current user
 #  req(GET|POST|SESSION|SERVER)(name)  Functions that return the given param, or exit the page if it's missing.
 #  try(GET|POST|SESSION|SERVER)(name)  Functions that return the given param, or empty string if it's missing.
 session_start();
 require('model.php');
 $model = new Model;
+$user = false;
+if (isset($_SESSION['username'])) {
+    $user = $model->getUser($username);
+}
+if (!$user) {
+    $user = new User;
+    $user->isguest = true;
+    $user->username = 'guest'.uniqid();
+    $user->password = uniqid();
+}
+$username = $user->username;
+$isguest  = $user->isguest; 
 
-$isloggedin = false;
-if (isset($_SESSION['isloggedin']) and $_SESSION['isloggedin']) {
-    if (isset($_SESSION['username']) and $_SESSION['username']) {
-        $username = $_SESSION['username'];
-        $isloggedin = true;
-        $user = $model->getUser($username);
-    }
-}
-if ($isloggedin and !$user) {
-    $isloggedin = false;
-    $message = "User not found.";
-    require('status400.php');
-}
-              
 $method = $_SERVER['REQUEST_METHOD'];
  
 function reqGET($name) {
