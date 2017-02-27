@@ -65,7 +65,19 @@ class Model {
         $users = [];
         foreach ($userNames as $n) {
             $u = $this->getUser($n);
-            if ($n and !$u->isguest) {
+            if ($u) {
+                $users[] = $u;
+            }
+        }
+        return $users;
+    }
+    
+    function getNonGuestUsers() {
+        $userNames = $this->getUserNames();
+        $users = [];
+        foreach ($userNames as $n) {
+            $u = $this->getUser($n);
+            if ($u and !$u->isguest) {
                 $users[] = $u;
             }
         }

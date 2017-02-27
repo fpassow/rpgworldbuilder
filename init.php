@@ -17,18 +17,27 @@ require('model.php');
 $model = new Model;
 $user = false;
 if (isset($_SESSION['username'])) {
-    $user = $model->getUser($username);
+    $user = $model->getUser(trim($_SESSION['username']));
 }
 if (!$user) {
+    logg("Did not find username. Making new.");
     $user = new User;
     $user->isguest = true;
     $user->username = 'guest'.uniqid();
     $user->password = uniqid();
+    $model->storeUser($user);
+    $_SESSION['username'] = $user->username;
 }
 $username = $user->username;
 $isguest  = $user->isguest; 
 
 $method = $_SERVER['REQUEST_METHOD'];
+
+function logg($str) {
+    $f = fopen('log.txt', 'a');
+    fwrite($f, date('Y-m-d H:i:s').' '.$str."\r\n");
+    fclose($f);
+}
  
 function reqGET($name) {
     if (isset($_GET[$name])) {

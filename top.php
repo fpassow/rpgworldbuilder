@@ -21,7 +21,7 @@ require_once('view_lib.php');
             echo ' &nbsp; &nbsp; <div id="toprightnav"><a href="logout.php">Logout</a>';
             echo ' &nbsp; &nbsp; Logged in as <a href="mycampaigns.php"><b>'.$username.'</b></a>';
 
-            echo '<div id="toprightnav"> &nbsp; &nbsp; <a href="login.php">Login</a> &nbsp; <a href="newuser.php">New User</a> ';
+            echo '<div id="toprightnav"> &nbsp; &nbsp; <a href="login.php">Change user</a> &nbsp; <a href="newuser.php">New User</a> ';
         
     ?>
     </div>

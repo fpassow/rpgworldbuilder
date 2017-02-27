@@ -1,5 +1,8 @@
 <?php
 require('init.php');
+
+$old_user = $user;
+
 if ($method != 'POST') {
     #GET
     $message = '';
@@ -13,7 +16,20 @@ if ($method != 'POST') {
             $_SESSION['username'] = $new_username;
             $isguest = false;
             $username = $new_username;
-            $user = new_user;
+            $user = $new_user;
+            
+            #If the previous user had been a guest,
+            # the new user gets all their campaigns.
+            if ($old_user->guest and sizeof($old_user->campaigns) {
+                $new_campaigns = $user->campaigns;
+                foreach ($old_user->campaigns as $camp) {
+                    $camp->username = $username;
+                    $new_campaigns[] = $camp;
+                }
+                $user->campaigns = $new_campaigns;
+                $model->storeUser($user);
+            }
+            
             header('Location: mycampaigns.php', true, 303);
             exit;
         }
