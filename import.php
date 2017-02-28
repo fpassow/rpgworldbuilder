@@ -37,13 +37,7 @@ if (!$from) {
 foreach ($model->getDef()->fields as $field) {
     $name = $field->name;
     if ($field->isarrayfield) {
-        foreach ($from->$name as $val) {
-            if (!in_array($val, $to->$name)) {
-                $temp = $to->$name;
-                $temp[] = $val;
-                $to->$name = $temp;
-            }
-        }
+        $to->$name = array_unique(array_merge($to->$name, $from->$name));
     } else {
         if ($name != 'title') {
             if ($from->$name) {
