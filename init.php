@@ -34,7 +34,7 @@ $isguest  = $user->isguest;
 $method = $_SERVER['REQUEST_METHOD'];
 
 function logg($str) {
-    $f = fopen('log.txt', 'a');
+    $f = fopen('../../rpgworldbuilder/log/log.txt', 'a');
     fwrite($f, date('Y-m-d H:i:s').' '.$str."\r\n");
     fclose($f);
 }
