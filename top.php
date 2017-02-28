@@ -14,15 +14,20 @@ require_once('view_lib.php');
 <div id="main">
 
 <div id="topnav">
-    <a href="home.php">Home</a> &nbsp; &nbsp; <a href="campaignlist.php">Campaigns</a>
-    <?php   
-            echo ' &nbsp; &nbsp; <a href="mycampaigns.php">My Campaigns</a>';
-            echo ' &nbsp; &nbsp; <a href="newcampaign.php">New Campaign</a> ';
-            echo ' &nbsp; &nbsp; <div id="toprightnav"><a href="logout.php">Logout</a>';
-            echo ' &nbsp; &nbsp; Logged in as <a href="mycampaigns.php"><b>'.$username.'</b></a>';
-
-            echo '<div id="toprightnav"> &nbsp; &nbsp; <a href="login.php">Change user</a> &nbsp; <a href="newuser.php">New User</a> ';
-        
-    ?>
+    <div id="workingnav">
+        <a href="home.php">Home</a>
+        <a href="campaignlist.php">Campaigns</a>
+        <a href="mycampaigns.php">My Campaigns</a>
+        <a href="newcampaign.php">New Campaign</a>
+    </div>
+    <div id="accountnav">
+        <?php if (!$user->isguest) {  ?>
+            Logged in as <a href="mycampaigns.php"><b><?= $username ?></b></a>
+            <a href="logout.php">Logout</a>
+            <a href="login.php">Change user</a>
+        <?php } else { ?>
+            <a href="login.php">Log in</a>
+        <?php } ?>
+        <a href="newuser.php">New User</a> 
     </div>
 </div>

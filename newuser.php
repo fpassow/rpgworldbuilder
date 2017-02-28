@@ -26,7 +26,7 @@ if ($method != 'POST') {
             
             #If the previous user had been a guest,
             # the new user gets all their campaigns.
-            if ($old_user->guest and sizeof($old_user->campaigns) {
+            if ($old_user->guest and sizeof($old_user->campaigns)) {
                 $new_campaigns = $user->campaigns;
                 foreach ($old_user->campaigns as $camp) {
                     $camp->username = $username;
