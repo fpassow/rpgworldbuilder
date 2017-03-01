@@ -1,6 +1,7 @@
 <?php
 $pagetitle = $campaign->title;
 require('top.php');
+echo '<div class="special_nav"><a href="clone.php?id='.$campaign->id.'">Clone</a></div>';
 echo '<div>By '.$campaign->username."</div>\r\n";
 
 $fields = $model->getDef()->fields;
