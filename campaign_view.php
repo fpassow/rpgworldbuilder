@@ -12,7 +12,7 @@ echo '</div>';
 
 <form action="updatecampaign.php" method="POST">
 <input type="hidden" name="id" value="<?= $campaign->id ?>">
-<input type="hidden" name="focus_here" id="focus_here" value="<?= htmlspecialchars(nextFocus($focus_here, $model->getDef())) ?>">
+<input type="hidden" name="focus_here" id="focus_here" value="<?= htmlspecialchars($focus_here) ?>">
 <input type="submit" value="SAVE" class="submit_button">
 
 <?php

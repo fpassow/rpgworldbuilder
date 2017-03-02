@@ -11,21 +11,8 @@ function displayArrayField($campaign, $name) {
         echo '">delete</a>)</li>'."\r\n";
     }
     echo '<li><input name="'.$name.'" id="'.$name.'"></li>'."\r\n";
+    echo '<li><input type="submit" name="add_'.$name.'" value="+" class="submit_button"></li>'."\r\n";
     echo "</ul>\r\n";
-}
-
-#Display current values plus a form field for editing something on a campaign
-function displayOrderedArrayField($campaign, $name) {
-    echo "<ol>\r\n";
-    $i = 0;
-    foreach ($campaign->$name as $x) {
-        echo '<li>'.htmlspecialchars($x);
-        echo '(<a href="deletearrayitem.php?campaignid='.$campaign->id
-                  .'&fieldname='.$name.'&index='. $i++;
-        echo '">delete</a>)</li>'."\r\n";
-    }
-    echo '<li><input name="'.$name.'" id="'.$name.'"></li>'."\r\n";
-    echo "</ol>\r\n";
 }
 
 #Display a static list of ideas for the user to look at while creating a campaign

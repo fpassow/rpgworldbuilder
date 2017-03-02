@@ -25,9 +25,15 @@ $campaign->updateFromArray($_POST, $model->getDef()->fields);
 $user = $model->getUser($username);
 $user->updateCampaign($campaign);
 $model->storeUser($user);
-if (array_key_exists('focus_here', $_POST) and strlen(trim($_POST['focus_here']))) {
-    $focus_here = nextFocus($focus_here, $model->getDef());
-    header('Location: campaign.php?id='.$campaign->id.'&focus_here='.$_POST['focus_here'], true, 303);
-} else {
-    header('Location: campaign.php?id='.$campaign->id, true, 303);
+
+# Look for a param named add_<name>. 
+# If found, it was an array field's submit button. 
+#   Send the name back in focus_here.
+foreach ($_POST as $key=>$val) {
+    if (strpos($key, 'add_') === 0) {
+        $focus_here = substr($key, 4);
+        header('Location: campaign.php?id='.$campaign->id.'&focus_here='.$focus_here, true, 303);
+        return;
+    }
 }
+header('Location: campaign.php?id='.$campaign->id, true, 303);
