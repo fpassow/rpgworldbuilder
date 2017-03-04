@@ -15,24 +15,7 @@ echo '</div>';
 <input type="hidden" name="focus_here" id="focus_here" value="<?= htmlspecialchars($focus_here) ?>">
 <input type="submit" value="SAVE" class="submit_button">
 
-<?php
-foreach ($model->def->fields as $field) {
-    $fieldname = $field->name;
-    echo '<h2>'.$field->label."</h2>\r\n";
-    echo '<div class="instructions">'.$field->instructions."</div>\r\n";
-    displayDefListAsTable($field, 4, 'def');
-    if ($field->isarrayfield) {
-        displayArrayField($campaign, $fieldname);
-    } else {
-        if ($field->longtext) {
-            echo '<textarea name="'.$fieldname.'" id="'.$fieldname.'" rows="5" cols="80">'.$campaign->$fieldname.'</textarea>'."\r\n";
-        } else {
-            echo '<input name="'.$fieldname.'" id="'.$fieldname.'" value="'.$campaign->$fieldname.'"></input>'."\r\n";
-        }
-    }
-}
-
-?>
+<div id="campaign_fields"></div>
 
 <br><br><input type="submit" value="SAVE"  class="submit_button">
 
