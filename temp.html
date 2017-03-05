@@ -6,7 +6,14 @@
 <script>
 
 $(document).ready(function() {
-    $("#foo").text('<h1>boo</h1>');
+   // $("#foo").text('<h1>boo</h1>');
+   
+    $.getJSON( "campaign_form_def.json", {}, function(campaignDef) {
+        $.getJSON( "campaign_data.php?id=58b58319f40b9", {}, function(campaignData) {
+            alert(JSON.stringify(campaignData));
+        });
+    });
+
 });
 
 </script>

@@ -1,9 +1,9 @@
 $(document).ready(function() {
   
-    #Get def object
-    $.getJSON( "campaign_form_def.json", function(campaignDef) {
-        $.getJSON( "campaign_data.php", function(campaignData) {
-            for (var i = 0; i < campaignDef.fields.length; i++) {
+    //Get Def json from server and build form
+    $.getJSON( "campaign_form_def.json", {}, function(campaignDef) {
+        $.getJSON( "campaign_data.php?id=" + $("#campaignid").val(), {}, function(campaignData) {
+        for (var i = 0; i < campaignDef.fields.length; i++) {
                 addField(campaignDef.fields[i], campaignData); 
             }
         });
@@ -12,22 +12,22 @@ $(document).ready(function() {
 
 });
 
-function addField(field, campaign_data) {
-        $("#campaign_fields")
-            .append('<h2>' + field.label + '</h2>')
-            .append('<div class="instructions">' + field.instructions + '</div>')
-            .append(defListAsTable(field, 4, 'def'));
-        if (field.isarrayfield) {
-            $("#campaign_fields").append(displayArrayField(field, campaign_data));
+function addField(field, campaignData) {
+    $("#campaign_fields")
+        .append('<h2>' + field.label + '</h2>')
+        .append('<div class="instructions">' + field.instructions + '</div>')
+        .append(defListAsTable(field, 4, 'def'));
+    if (field.isarrayfield) {
+        $("#campaign_fields").append(displayArrayField(field, campaignData));
+    } else {
+        if (field.longtext) {
+            $("#campaign_fields").append('<textarea name="' + field.name + '" id="' + field.name + '" rows="5" cols="80">' + escapeHtml(campaignData[field.name]) + '</textarea>' + "\r\n");
         } else {
-            if (field.longtext) {
-                $("#campaign_fields").append('<textarea name="' + field.name + '" id="' + field.name + '" rows="5" cols="80">' + escapeHtml(campaignData[fieldname]) + '</textarea>' + "\r\n");
-            } else {
-                $("#campaign_fields").append('<input name="' + field.name + '" id="' + field.name + '" value="' + escapeHtml(campaignData[fieldname]) + '"></input>'."\r\n";
-            }
+            $("#campaign_fields").append('<input name="' + field.name + '" id="' + field.name + '" value="' + escapeHtml(campaignData[field.name]) + '"></input>' + "\r\n");
         }
     }
 }
+
 
 /* Returns the whole table as a string. */
 function defListAsTable(field, columns, target) {
@@ -36,12 +36,12 @@ function defListAsTable(field, columns, target) {
     var index = 0;
     var count = 0;
     var hint;
-    if (field.hints)) {
+    if (field.hints) {
         s += '<div class="deflist"><table><tr><td>';
         for (index = 0; index < field.hints.length; index++) {
             hint = field.hints[index];
             if (hint.description) {
-                s += '<a target="' + target + '" href="listdef.php?name=' + field.name + '&index='index.'">' + hint.label +'<a><br>';
+                s += '<a target="' + target + '" href="listdef.php?name=' + field.name + '&index='+ index + '">' + hint.label +'<a><br>';
             } else {
                 s += hint.label + '<br>';
             }
@@ -62,13 +62,13 @@ function displayArrayField(field, campaign_data) {
     var index = 0;
     var arr = campaign_data[field.name];
     for (index = 0; index < arr.length; index++) {
-        s += '<li>'.escapeHtml(arr[index]);
+        s += '<li>' +escapeHtml(arr[index]);
         s += '(<a href="deletearrayitem.php?campaignid=' + campaign_data.id
                   + '&fieldname=' + field.name + '&index=' + index++;
         s += '">delete</a>)</li>' + "\r\n";
     }
-    s += '<li><input name="' + field.name + '" id="' + field.name + '"></li>'."\r\n";
-    s += '<li><input type="submit" name="add_' + field.name + '" value="+" class="submit_button"></li>'."\r\n";
+    s += '<li><input name="' + field.name + '" id="' + field.name + '"></li>' + "\r\n";
+    s += '<li><input type="submit" name="add_' + field.name + '" value="+" class="submit_button"></li>' + "\r\n";
     s += "</ul>\r\n";
     return s;
 }

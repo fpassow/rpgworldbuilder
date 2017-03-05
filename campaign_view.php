@@ -10,9 +10,8 @@ echo '</div>';
 ?>
 <script src="campaign_view.js"></script>
 
-<form action="updatecampaign.php" method="POST">
-<input type="hidden" name="id" value="<?= $campaign->id ?>">
-<input type="hidden" name="focus_here" id="focus_here" value="<?= htmlspecialchars($focus_here) ?>">
+<form action="storecampaign.php" method="POST">
+<input type="hidden" name="id" id="campaignid" value="<?= $campaign->id ?>">
 <input type="submit" value="SAVE" class="submit_button">
 
 <div id="campaign_fields"></div>
