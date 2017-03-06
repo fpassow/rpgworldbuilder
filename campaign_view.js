@@ -36,7 +36,7 @@ function defListAsTable(field, columns, target) {
     var index = 0;
     var count = 0;
     var hint;
-    if (field.hints) {
+    if (field.hints && field.hints.length) {
         s += '<div class="deflist"><table><tr><td>';
         for (index = 0; index < field.hints.length; index++) {
             hint = field.hints[index];
@@ -49,7 +49,6 @@ function defListAsTable(field, columns, target) {
                 s += "\r\n</td><td>";
                 count = 0;
             }
-            index++;
         }
         s += "</td></tr></table></div>\r\n"; 
     }
