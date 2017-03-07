@@ -3,17 +3,23 @@ $(document).ready(function() {
     //Get Def json from server and build form
     $.getJSON( "campaign_form_def.json", {}, function(campaignDef) {
         $.getJSON( "campaign_data.php?id=" + $("#campaignid").val(), {}, function(campaignData) {
-        for (var i = 0; i < campaignDef.fields.length; i++) {
+            for (var i = 0; i < campaignDef.fields.length; i++) {
                 addField(campaignDef.fields[i], campaignData); 
             }
+            $("input.addarrayfielditem").click(function() {
+                var input = $(this).closest("ul").find(".arrayinput");
+                input.closest("li").before('<li>' + escapeHtml(input.val()) +' (delete TODO)</li>' + "\r\n");
+                input.val('');
+            }); 
         });
     });
-    
+
 
 });
 
 function addField(field, campaignData) {
-    $("#campaign_fields")
+    var fieldDiv = $('<div class="campaignfield"></div>');
+    fieldDiv
         .append('<h2>' + field.label + '</h2>')
         .append('<div class="instructions">' + field.instructions + '</div>')
         .append(defListAsTable(field, 4, 'def'));
@@ -26,6 +32,7 @@ function addField(field, campaignData) {
             $("#campaign_fields").append('<input name="' + field.name + '" id="' + field.name + '" value="' + escapeHtml(campaignData[field.name]) + '"></input>' + "\r\n");
         }
     }
+    $("#campaign_fields").append(fieldDiv);
 }
 
 
@@ -66,8 +73,8 @@ function displayArrayField(field, campaign_data) {
                   + '&fieldname=' + field.name + '&index=' + index++;
         s += '">delete</a>)</li>' + "\r\n";
     }
-    s += '<li><input name="' + field.name + '" id="' + field.name + '"></li>' + "\r\n";
-    s += '<li><input type="submit" name="add_' + field.name + '" value="+" class="submit_button"></li>' + "\r\n";
+    s += '<li><input name="' + field.name + '" class="arrayinput"></li>' + "\r\n";
+    s += '<li><input type="button" value="+" class="addarrayfielditem"></li>' + "\r\n";
     s += "</ul>\r\n";
     return s;
 }

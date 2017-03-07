@@ -6,12 +6,9 @@
 <script>
 
 $(document).ready(function() {
-   // $("#foo").text('<h1>boo</h1>');
-   
-    $.getJSON( "campaign_form_def.json", {}, function(campaignDef) {
-        $.getJSON( "campaign_data.php?id=58b58319f40b9", {}, function(campaignData) {
-            alert(JSON.stringify(campaignData));
-        });
+
+    $(".peasant").click(function() {
+        alert('foo');
     });
 
 });
@@ -20,6 +17,11 @@ $(document).ready(function() {
 </head>
 <body>
 
-<div id="foo"></div>
+<div id="foo">
+<form>
+<input type="button" id="superego" class="peasant" value="kick me">
+</form>
+
+</div>
 </body>
 </html>
