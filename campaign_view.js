@@ -6,16 +6,24 @@ $(document).ready(function() {
             for (var i = 0; i < campaignDef.fields.length; i++) {
                 addField(campaignDef.fields[i], campaignData); 
             }
+            
+            $(".deleteArrayFieldItem").click(deleteArrayFieldItem);
+            
             $("input.addarrayfielditem").click(function() {
                 var input = $(this).closest("ul").find(".arrayinput");
-                input.closest("li").before('<li>' + escapeHtml(input.val()) +' (delete TODO)</li>' + "\r\n");
+                input.closest("li").before('<li>' + escapeHtml(input.val()) + ' <span class="deleteArrayFieldItem"> del </span></li>' + "\r\n");
                 input.val(null);
+                $(".deleteArrayFieldItem").click(deleteArrayFieldItem);//Yes, I'm a loser (re)setting it all over the page.
             }); 
         });
     });
 
 
 });
+
+function deleteArrayFieldItem() {
+    $(this).closest('li').remove();   
+}
 
 function addField(field, campaignData) {
     var fieldDiv = $('<div class="campaignfield"></div>');
@@ -59,7 +67,7 @@ function defListAsTable(field, columns, target) {
         }
         s += "</td></tr></table></div>\r\n"; 
     }
-    return s;    
+    return s;
 }
 
 /* Returns a string */
@@ -68,10 +76,8 @@ function displayArrayField(field, campaign_data) {
     var index = 0;
     var arr = campaign_data[field.name];
     for (index = 0; index < arr.length; index++) {
-        s += '<li>' +escapeHtml(arr[index]);
-        s += '(<a href="deletearrayitem.php?campaignid=' + campaign_data.id
-                  + '&fieldname=' + field.name + '&index=' + index++;
-        s += '">delete</a>)</li>' + "\r\n";
+        s += '<li>' + escapeHtml(arr[index]) 
+           + ' <span class="deleteArrayFieldItem"> del </span></li>' + "\r\n";
     }
     s += '<li><input name="' + field.name + '" class="arrayinput"></li>' + "\r\n";
     s += '<li><input type="button" value="+" class="addarrayfielditem"></li>' + "\r\n";
