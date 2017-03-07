@@ -8,7 +8,7 @@
 $(document).ready(function() {
 
     $(".peasant").click(function() {
-        alert('foo');
+        alert("[["+$("#wooobly").val()+"]]");
     });
 
 });
@@ -19,6 +19,7 @@ $(document).ready(function() {
 
 <div id="foo">
 <form>
+<input id="wooobly">
 <input type="button" id="superego" class="peasant" value="kick me">
 </form>
 

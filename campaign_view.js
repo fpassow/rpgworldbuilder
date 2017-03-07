@@ -9,7 +9,7 @@ $(document).ready(function() {
             $("input.addarrayfielditem").click(function() {
                 var input = $(this).closest("ul").find(".arrayinput");
                 input.closest("li").before('<li>' + escapeHtml(input.val()) +' (delete TODO)</li>' + "\r\n");
-                input.val('');
+                input.val(null);
             }); 
         });
     });
