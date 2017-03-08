@@ -11,10 +11,12 @@ $(document).ready(function() {
             
             $("input.addarrayfielditem").click(function() {
                 var input = $(this).closest("ul").find(".arrayinput");
-                input.closest("li").before('<li>' + escapeHtml(input.val()) + ' <span class="deleteArrayFieldItem"> del </span></li>' + "\r\n");
+                input.closest("li").before('<li><span class="thevalue">' + escapeHtml(input.val()) + '</span> <span class="deleteArrayFieldItem"> del </span></li>' + "\r\n");
                 input.val(null);
                 $(".deleteArrayFieldItem").click(deleteArrayFieldItem);//Yes, I'm a loser (re)setting it all over the page.
-            }); 
+            });
+            
+            $(".submit_button").click(storeCampaign(campaignDef);
         });
     });
 
@@ -28,6 +30,7 @@ function deleteArrayFieldItem() {
 function addField(field, campaignData) {
     var fieldDiv = $('<div class="campaignfield"></div>');
     fieldDiv
+        .append('<input type="hidden" class="fieldname" value="' + field.name + '">')
         .append('<h2>' + field.label + '</h2>')
         .append('<div class="instructions">' + field.instructions + '</div>')
         .append(defListAsTable(field, 4, 'def'));
@@ -76,7 +79,7 @@ function displayArrayField(field, campaign_data) {
     var index = 0;
     var arr = campaign_data[field.name];
     for (index = 0; index < arr.length; index++) {
-        s += '<li>' + escapeHtml(arr[index]) 
+        s += '<li><span class="thevalue">' + escapeHtml(arr[index]) + '</span>'
            + ' <span class="deleteArrayFieldItem"> del </span></li>' + "\r\n";
     }
     s += '<li><input name="' + field.name + '" class="arrayinput"></li>' + "\r\n";
@@ -99,4 +102,16 @@ function escapeHtml(string) {
   return String(string).replace(/[&<>"'`=\/]/g, function (s) {
     return entityMap[s];
   });
+}
+
+function storeCampaign(campaignDef) {
+    //$(".campaignfield").each(
+    var outData = {};
+    var name;
+    for (var i = 0; i < campaignDef.fields.length; i++) {
+        name = campaignDef.fields[i].name
+        outData[name] = extractField("
+    }
+    
+    
 }
